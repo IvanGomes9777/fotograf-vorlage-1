@@ -3,9 +3,9 @@
 // where the next sections (Projekte, …) will be implemented.
 
 import { Hero } from "@/components/hero";
+import { Gallery } from "@/components/gallery";
 
 const PLACEHOLDERS = [
-  { id: "projekte", title: "Projekte" },
   { id: "studio", title: "Studio" },
   { id: "leistungen", title: "Leistungen" },
   { id: "faq", title: "FAQ" },
@@ -16,6 +16,7 @@ export default function Home() {
   return (
     <main id="top">
       <Hero />
+      <Gallery />
 
       {PLACEHOLDERS.map((s) => (
         <section

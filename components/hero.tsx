@@ -12,6 +12,90 @@ const BG_IMG =
 
 const clamp = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
 
+// Fire once when the element scrolls into view.
+function useInView<T extends HTMLElement>(threshold = 0.2) {
+  const ref = React.useRef<T>(null);
+  const [inView, setInView] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { threshold }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [threshold]);
+  return { ref, inView };
+}
+
+// Count-up number; respects reduced motion (snaps to final value).
+function CountUp({
+  to,
+  start,
+  suffix = "",
+  duration = 1400,
+}: {
+  to: number;
+  start: boolean;
+  suffix?: string;
+  duration?: number;
+}) {
+  const [val, setVal] = React.useState(0);
+  React.useEffect(() => {
+    if (!start) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setVal(to);
+      return;
+    }
+    let raf = 0;
+    const t0 = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min((now - t0) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      setVal(Math.round(eased * to));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [start, to, duration]);
+  return (
+    <>
+      {val}
+      {suffix}
+    </>
+  );
+}
+
+// Staggered reveal wrapper.
+function Reveal({
+  show,
+  delay = 0,
+  className,
+  children,
+}: {
+  show: boolean;
+  delay?: number;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      className={`transition-all duration-700 ease-out motion-reduce:transition-none ${
+        show ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+      } ${className ?? ""}`}
+      style={{ transitionDelay: show ? `${delay}ms` : "0ms" }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export function Hero() {
   const wrap = React.useRef<HTMLDivElement>(null);
   const frame = React.useRef<HTMLDivElement>(null);
@@ -20,7 +104,9 @@ export function Hero() {
   const t2 = React.useRef<HTMLSpanElement>(null);
   const cap = React.useRef<HTMLDivElement>(null);
   const cue = React.useRef<HTMLSpanElement>(null);
-  const content = React.useRef<HTMLDivElement>(null);
+
+  const copy = useInView<HTMLDivElement>(0.25);
+  const stats = useInView<HTMLDivElement>(0.5);
 
   React.useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -44,8 +130,6 @@ export function Hero() {
       if (t2.current) t2.current.style.transform = `translateX(${shift}vw)`;
       if (cap.current) cap.current.style.opacity = String(1 - p * 1.5);
       if (cue.current) cue.current.style.opacity = String(1 - p * 1.6);
-      if (content.current)
-        content.current.style.opacity = p >= 0.98 ? "1" : "0";
     };
 
     // Reduced motion: render the fully-expanded, static hero and stop.
@@ -151,70 +235,101 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Content revealed after full expansion */}
-      <div
-        ref={content}
-        className="bg-paper opacity-0 transition-opacity duration-700 motion-reduce:opacity-100 motion-reduce:transition-none"
-      >
-        <div className="mx-auto grid max-w-[1280px] gap-12 px-6 pb-16 pt-4 md:grid-cols-2 md:items-end md:px-10">
+      {/* Content — staggered reveal on scroll-in */}
+      <div className="bg-paper">
+        <div
+          ref={copy.ref}
+          className="mx-auto grid max-w-[1280px] gap-12 px-6 pb-16 pt-4 md:grid-cols-2 md:items-end md:px-10"
+        >
           <div>
-            <div className="mb-5 flex items-center gap-3">
-              <span className="h-px w-7 bg-accent" />
-              <span className="font-mono text-[11px] tracking-[0.26em] text-accent">
-                ARCHITEKTURFOTOGRAFIE · ZÜRICH
-              </span>
-            </div>
-            <h1
-              className="text-balance font-extrabold leading-[1.04] tracking-tight"
-              style={{ fontSize: "clamp(34px,3.6vw,52px)" }}
-            >
-              Räume, dokumentiert mit <span className="text-accent">Präzision</span>.
-            </h1>
+            <Reveal show={copy.inView} delay={0}>
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-px w-7 bg-accent" />
+                <span className="font-mono text-[11px] tracking-[0.26em] text-accent">
+                  ARCHITEKTURFOTOGRAFIE · ZÜRICH
+                </span>
+              </div>
+            </Reveal>
+            <Reveal show={copy.inView} delay={120}>
+              <h1
+                className="text-balance font-extrabold leading-[1.04] tracking-tight"
+                style={{ fontSize: "clamp(34px,3.6vw,52px)" }}
+              >
+                Räume, dokumentiert mit{" "}
+                <span className="text-accent">Präzision</span>.
+              </h1>
+            </Reveal>
           </div>
           <div>
-            <p className="max-w-md text-pretty text-[17px] leading-relaxed text-muted">
-              Formtreue Fotografie von Architektur und Innenräumen — für Studios,
-              Bauträger und Marken. Termingerecht geliefert, klar lizenziert.
-            </p>
-            <div className="mt-7 flex flex-wrap items-center gap-5">
-              <a
-                href="#kontakt"
-                className="rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 motion-reduce:transition-none"
-              >
-                Angebot anfragen
-              </a>
-              <a
-                href="#projekte"
-                className="border-b-2 border-accent pb-1 text-sm font-semibold"
-              >
-                Ausgewählte Arbeiten →
-              </a>
-            </div>
+            <Reveal show={copy.inView} delay={240}>
+              <p className="max-w-md text-pretty text-[17px] leading-relaxed text-muted">
+                Formtreue Fotografie von Architektur und Innenräumen — für
+                Studios, Bauträger und Marken. Termingerecht geliefert, klar
+                lizenziert.
+              </p>
+            </Reveal>
+            <Reveal show={copy.inView} delay={360}>
+              <div className="mt-7 flex flex-wrap items-center gap-5">
+                <a
+                  href="#kontakt"
+                  className="rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 motion-reduce:transition-none"
+                >
+                  Angebot anfragen
+                </a>
+                <a
+                  href="#projekte"
+                  className="border-b-2 border-accent pb-1 text-sm font-semibold"
+                >
+                  Ausgewählte Arbeiten →
+                </a>
+              </div>
+            </Reveal>
           </div>
         </div>
 
-        <div className="mx-auto flex max-w-[1280px] flex-wrap items-center gap-x-11 gap-y-6 border-t border-line px-6 py-7 md:px-10">
+        <div
+          ref={stats.ref}
+          className="mx-auto flex max-w-[1280px] flex-wrap items-center gap-x-11 gap-y-6 border-t border-line px-6 py-7 md:px-10"
+        >
           <div className="flex gap-10">
-            <Stat value="120+" label="PROJEKTE" />
-            <Stat value="9 J." label="IM STUDIO" />
-            <Stat value="48h" label="ANGEBOT IN" />
+            <Stat show={stats.inView} to={120} suffix="+" label="PROJEKTE" delay={0} />
+            <Stat show={stats.inView} to={9} suffix=" J." label="IM STUDIO" delay={120} />
+            <Stat show={stats.inView} to={48} suffix="h" label="ANGEBOT IN" delay={240} />
           </div>
-          <div className="ml-auto font-mono text-[12px] tracking-[0.16em] text-muted/80">
+          <Reveal
+            show={stats.inView}
+            delay={360}
+            className="ml-auto font-mono text-[12px] tracking-[0.16em] text-muted/80"
+          >
             BÜRO · HOTELLERIE · RETAIL · WOHNEN · KULTUR
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
   );
 }
 
-function Stat({ value, label }: { value: string; label: string }) {
+function Stat({
+  show,
+  to,
+  suffix,
+  label,
+  delay,
+}: {
+  show: boolean;
+  to: number;
+  suffix: string;
+  label: string;
+  delay: number;
+}) {
   return (
-    <div>
-      <div className="text-2xl font-extrabold tracking-tight">{value}</div>
+    <Reveal show={show} delay={delay}>
+      <div className="text-2xl font-extrabold tracking-tight tabular-nums">
+        <CountUp to={to} start={show} suffix={suffix} />
+      </div>
       <div className="mt-1 font-mono text-[10.5px] tracking-[0.12em] text-muted">
         {label}
       </div>
-    </div>
+    </Reveal>
   );
 }

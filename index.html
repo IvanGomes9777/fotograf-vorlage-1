@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEDUTA Studio · Architektur- & Interior-Fotografie</title>
+<meta name="description" content="VEDUTA — präzise, formtreue Fotografie von Architektur und Innenräumen für Studios, Bauträger und Marken.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:#FAFAF8;color:#15161A;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#2E5BFF;color:#fff}
+  a{color:inherit;text-decoration:none}
+  input,select,textarea,button{font-family:inherit}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:#2E5BFF !important}
+</style>
+</head>
+<body>
+
+<div>
+  <!-- ===================== NAV ===================== -->
+  <div style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,0.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,0.07)">
+    <div style="max-width:1280px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between">
+      <a href="#top" style="font-weight:900;font-size:19px;letter-spacing:0.01em">VEDUTA<span style="color:#2E5BFF">.</span></a>
+      <div style="display:flex;gap:34px;align-items:center">
+        <a href="#gallery" style="font-size:13.5px;letter-spacing:0.03em;color:#5a5d66">Projekte</a>
+        <a href="#about" style="font-size:13.5px;letter-spacing:0.03em;color:#5a5d66">Leistungen</a>
+        <a href="#about" style="font-size:13.5px;letter-spacing:0.03em;color:#5a5d66">Studio</a>
+        <a href="#faq" style="font-size:13.5px;letter-spacing:0.03em;color:#5a5d66">FAQ</a>
+        <a href="#contact" style="font-size:13.5px;letter-spacing:0.02em;color:#fff;background:#2E5BFF;padding:11px 20px;border-radius:8px;font-weight:600;white-space:nowrap">Angebot anfragen</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== HERO · SCROLL-TO-EXPAND ===================== -->
+  <section id="top" data-hero style="position:relative;background:#FAFAF8;color:#15161A;overflow-x:hidden">
+    <!-- background (fades out as media expands) -->
+    <div data-hero-bg style="position:absolute;inset:0;z-index:0;background-image:repeating-linear-gradient(135deg,#ededeb 0 28px,#f7f7f4 28px 56px);transition:opacity .12s linear">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,250,248,0.2),rgba(244,244,242,0.6))"></div>
+    </div>
+
+    <!-- sticky stage -->
+    <div style="position:relative;z-index:10;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center">
+      <!-- expanding media frame -->
+      <div data-hero-media style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:400px;max-width:95vw;max-height:85vh;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,0.4);border:1px solid rgba(0,0,0,0.06);background-image:repeating-linear-gradient(135deg,#d6d9e2 0 24px,#eceef3 24px 48px)">
+        <div data-hero-overlay style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(12,14,20,0.62));opacity:0.55;transition:opacity .2s ease"></div>
+        <div style="position:absolute;left:0;right:0;bottom:28px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:9px">
+          <span data-hero-date style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.2em;color:#bcd0ff">ARCHITEKTUR · INTERIORS</span>
+          <span data-hero-cue style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:0.12em;color:#8fa6e0">Scrollen zum Entfalten ↓</span>
+        </div>
+      </div>
+      <!-- split title -->
+      <div style="position:relative;z-index:20;display:flex;flex-direction:column;align-items:center;gap:4px;mix-blend-mode:difference;pointer-events:none">
+        <span data-hero-t1 style="font-size:clamp(56px,10vw,150px);font-weight:900;letter-spacing:-0.045em;line-height:0.86;color:#ffffff">VEDUTA</span>
+        <span data-hero-t2 style="font-size:clamp(56px,10vw,150px);font-weight:900;letter-spacing:-0.045em;line-height:0.86;color:#ffffff">STUDIO</span>
+      </div>
+    </div>
+
+    <!-- content revealed after full expansion -->
+    <div data-hero-content style="position:relative;z-index:10;opacity:0;transition:opacity .8s ease;background:#FAFAF8;padding:18px 40px 96px">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+            <span style="width:26px;height:1px;background:#2E5BFF"></span>
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.26em;color:#2E5BFF">ARCHITEKTURFOTOGRAFIE · ZÜRICH</span>
+          </div>
+          <h1 style="font-size:clamp(34px,3.6vw,52px);font-weight:800;line-height:1.04;letter-spacing:-0.03em;color:#15161A">Räume, dokumentiert<br>mit <span style="color:#2E5BFF">Präzision.</span></h1>
+        </div>
+        <div>
+          <p style="max-width:440px;font-size:17px;line-height:1.65;color:#5a5d66">Präzise, formtreue Fotografie von Architektur und Innenräumen — für Studios, Bauträger und Marken. Termingerecht geliefert, klar lizenziert.</p>
+          <div style="display:flex;gap:18px;align-items:center;margin-top:30px">
+            <a href="#contact" style="font-size:14px;letter-spacing:0.02em;color:#fff;background:#2E5BFF;padding:15px 26px;border-radius:9px;font-weight:600;white-space:nowrap">Angebot anfragen</a>
+            <a href="#gallery" style="font-size:14px;letter-spacing:0.02em;color:#15161A;border-bottom:1.5px solid #2E5BFF;padding-bottom:4px">Ausgewählte Arbeiten →</a>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:1280px;margin:48px auto 0;padding-top:28px;border-top:1px solid rgba(0,0,0,0.1);display:flex;flex-wrap:wrap;align-items:center;gap:30px 44px">
+        <div style="display:flex;gap:38px">
+          <div><div style="font-size:26px;font-weight:800;letter-spacing:-0.02em">120<span style="color:#2E5BFF">+</span></div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#8a8d96;margin-top:4px">PROJEKTE</div></div>
+          <div><div style="font-size:26px;font-weight:800;letter-spacing:-0.02em">9 J.</div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#8a8d96;margin-top:4px">IM STUDIO</div></div>
+          <div><div style="font-size:26px;font-weight:800;letter-spacing:-0.02em">48h</div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#8a8d96;margin-top:4px">ANGEBOT IN</div></div>
+        </div>
+        <div style="flex:1;min-width:260px;text-align:right;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.16em;color:#b3b5bc">BÜRO · HOTELLERIE · RETAIL · WOHNEN · KULTUR · ENTWICKLUNGEN</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY · ZOOM PARALLAX ===================== -->
+  <section id="gallery" style="scroll-margin-top:0;background:#FAFAF8;color:#15161A;position:relative">
+    <!-- lead-in -->
+    <div style="height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px">
+      <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.28em;color:#2E5BFF;margin-bottom:22px">AUSGEWÄHLTE PROJEKTE · IM ZOOM</div>
+      <h2 data-reveal style="opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease;transition-delay:.1s;font-size:clamp(46px,7vw,96px);font-weight:800;letter-spacing:-0.04em;line-height:0.95">Die Galerie</h2>
+      <p data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease;transition-delay:.22s;margin-top:24px;max-width:460px;font-size:16px;line-height:1.65;color:#5a5d66">Scrollen Sie — die Aufnahmen entfalten sich aus der Mitte und füllen den Raum.</p>
+      <div style="margin-top:42px;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;color:#b3b5bc">
+        <span>SCROLL</span>
+        <span style="display:block;width:1px;height:46px;background:linear-gradient(#2E5BFF,transparent)"></span>
+      </div>
+    </div>
+    <!-- zoom stage -->
+    <div data-zoom-container style="position:relative;height:340vh">
+      <div style="position:sticky;top:0;height:100vh;overflow:hidden">
+        <!-- non-scaling chrome -->
+        <div style="position:absolute;top:28px;left:34px;z-index:30;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.2em;color:#b3b5bc">THE GALLERY / 01—07</div>
+        <div style="position:absolute;top:28px;right:34px;z-index:30;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#2E5BFF">ZOOM · PARALLAX</div>
+        <!-- frame 0 · center -->
+        <div data-zoom data-scale="4" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;will-change:transform">
+          <div style="position:relative;height:25vh;width:25vw;border-radius:3px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#cfd2db 0 18px,#e6e9f0 18px 36px);box-shadow:0 28px 64px -32px rgba(0,0,0,0.3);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#5a5d66">Fassade · Dämmerung</span></div>
+        </div>
+        <!-- frame 1 -->
+        <div data-zoom data-scale="5" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;will-change:transform">
+          <div style="position:relative;top:-30vh;left:5vw;height:30vh;width:35vw;border-radius:3px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#c7cad4 0 18px,#dfe2ea 18px 36px);box-shadow:0 28px 64px -32px rgba(0,0,0,0.3);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#5a5d66">Skyline · Langzeit</span></div>
+        </div>
+        <!-- frame 2 -->
+        <div data-zoom data-scale="6" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;will-change:transform">
+          <div style="position:relative;top:-10vh;left:-25vw;height:45vh;width:20vw;border-radius:3px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#cfd2db 0 18px,#e6e9f0 18px 36px);box-shadow:0 28px 64px -32px rgba(0,0,0,0.3);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#5a5d66">Treppe · vertikal</span></div>
+        </div>
+        <!-- frame 3 -->
+        <div data-zoom data-scale="5" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;will-change:transform">
+          <div style="position:relative;left:27.5vw;height:25vh;width:25vw;border-radius:3px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#c7cad4 0 18px,#dfe2ea 18px 36px);box-shadow:0 28px 64px -32px rgba(0,0,0,0.3);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#5a5d66">Atrium · Licht</span></div>
+        </div>
+        <!-- frame 4 -->
+        <div data-zoom data-scale="6" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;will-change:transform">
+          <div style="position:relative;top:27.5vh;left:5vw;height:25vh;width:20vw;border-radius:3px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#cfd2db 0 18px,#e6e9f0 18px 36px);box-shadow:0 28px 64px -32px rgba(0,0,0,0.3);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#5a5d66">Beton · Textur</span></div>
+        </div>
+        <!-- frame 5 -->
+        <div data-zoom data-scale="8" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;will-change:transform">
+          <div style="position:relative;top:27.5vh;left:-22.5vw;height:25vh;width:30vw;border-radius:3px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#c7cad4 0 18px,#dfe2ea 18px 36px);box-shadow:0 28px 64px -32px rgba(0,0,0,0.3);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#5a5d66">Lobby · Weitwinkel</span></div>
+        </div>
+        <!-- frame 6 -->
+        <div data-zoom data-scale="9" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;will-change:transform">
+          <div style="position:relative;top:22.5vh;left:25vw;height:15vh;width:15vw;border-radius:3px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#cfd2db 0 18px,#e6e9f0 18px 36px);box-shadow:0 28px 64px -32px rgba(0,0,0,0.3);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;left:11px;bottom:9px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.1em;color:#5a5d66">Dach · Horizont</span></div>
+        </div>
+        <!-- vignette -->
+        <div style="position:absolute;inset:0;pointer-events:none;z-index:20;background:radial-gradient(ellipse at center, transparent 55%, rgba(250,250,248,0.85) 100%)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ARCHIV · SCROLL-VELOCITY MARQUEE ===================== -->
+  <section id="archive" style="scroll-margin-top:80px;background:#F4F4F2;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);overflow:hidden">
+    <div style="max-width:1280px;margin:0 auto;padding:90px 40px 40px">
+      <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px">
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#2E5BFF;margin-bottom:14px">ALLE PROJEKTE · ARCHIV</div>
+          <h2 style="font-size:48px;font-weight:800;letter-spacing:-0.03em;line-height:1;white-space:nowrap">Das Archiv</h2>
+        </div>
+        <p style="max-width:340px;font-size:14.5px;line-height:1.65;color:#5a5d66;font-family:'Space Mono',monospace;letter-spacing:0.02em">Scrollen Sie — die Reihen beschleunigen mit Ihrer Scroll-Geschwindigkeit und kehren die Richtung um.</p>
+      </div>
+    </div>
+
+    <!-- marquee rows (full-bleed) -->
+    <div style="padding:24px 0 24px">
+      <!-- row 1 → -->
+      <div data-marquee-row data-dir="-1" data-base="3" style="overflow:hidden;width:100%;margin-bottom:18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+        <div data-marquee-track style="display:flex;flex-wrap:nowrap;width:max-content;will-change:transform">
+          <div style="position:relative;flex:none;width:clamp(170px,16vw,290px);height:clamp(115px,10.5vw,196px);margin-right:18px;border-radius:8px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d8d8e1 0 15px,#ecedf2 15px 30px);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;top:12px;left:13px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#2E5BFF">01</span><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7d7f88">Büro · Turm</span></div>
+          <div style="position:relative;flex:none;width:clamp(170px,16vw,290px);height:clamp(115px,10.5vw,196px);margin-right:18px;border-radius:8px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d4d4de 0 15px,#e8e9ef 15px 30px);border:1px solid rgba(0,0,0,0.08)"><span style="position:absolute;top:12px;left:13px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#2E5BFF">02</span><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7d7f88">Hotel · Lobby</span></div>
+          <div style="position:relative;flex:none;width:clamp(170px,16vw,290px);height:clamp(115px,10.5vw,196px);margin-right:18px;border-radius:8px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d8d8e1 0 15px,#ecedf2 15px 30px);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;top:12px;left:13px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#2E5BFF">03</span><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7d7f88">Flagship · Store</span></div>
+          <div style="position:relative;flex:none;width:clamp(170px,16vw,290px);height:clamp(115px,10.5vw,196px);margin-right:18px;border-radius:8px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d4d4de 0 15px,#e8e9ef 15px 30px);border:1px solid rgba(0,0,0,0.08)"><span style="position:absolute;top:12px;left:13px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#2E5BFF">04</span><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7d7f88">Villa · Innenraum</span></div>
+          <div style="position:relative;flex:none;width:clamp(170px,16vw,290px);height:clamp(115px,10.5vw,196px);margin-right:18px;border-radius:8px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d8d8e1 0 15px,#ecedf2 15px 30px);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;top:12px;left:13px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#2E5BFF">05</span><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7d7f88">Campus · Atrium</span></div>
+        </div>
+      </div>
+      <!-- row 2 ← -->
+      <div data-marquee-row data-dir="1" data-base="3" style="overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+        <div data-marquee-track style="display:flex;flex-wrap:nowrap;width:max-content;will-change:transform">
+          <div style="position:relative;flex:none;width:clamp(170px,16vw,290px);height:clamp(115px,10.5vw,196px);margin-right:18px;border-radius:8px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d4d4de 0 15px,#e8e9ef 15px 30px);border:1px solid rgba(0,0,0,0.08)"><span style="position:absolute;top:12px;left:13px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#2E5BFF">06</span><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7d7f88">Spa · Suite</span></div>
+          <div style="position:relative;flex:none;width:clamp(170px,16vw,290px);height:clamp(115px,10.5vw,196px);margin-right:18px;border-radius:8px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d8d8e1 0 15px,#ecedf2 15px 30px);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;top:12px;left:13px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#2E5BFF">07</span><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7d7f88">Boutique · Fassade</span></div>
+          <div style="position:relative;flex:none;width:clamp(170px,16vw,290px);height:clamp(115px,10.5vw,196px);margin-right:18px;border-radius:8px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d4d4de 0 15px,#e8e9ef 15px 30px);border:1px solid rgba(0,0,0,0.08)"><span style="position:absolute;top:12px;left:13px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#2E5BFF">08</span><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7d7f88">Penthouse · Licht</span></div>
+          <div style="position:relative;flex:none;width:clamp(170px,16vw,290px);height:clamp(115px,10.5vw,196px);margin-right:18px;border-radius:8px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d8d8e1 0 15px,#ecedf2 15px 30px);border:1px solid rgba(0,0,0,0.07)"><span style="position:absolute;top:12px;left:13px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#2E5BFF">09</span><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7d7f88">HQ · Treppenhaus</span></div>
+          <div style="position:relative;flex:none;width:clamp(170px,16vw,290px);height:clamp(115px,10.5vw,196px);margin-right:18px;border-radius:8px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d4d4de 0 15px,#e8e9ef 15px 30px);border:1px solid rgba(0,0,0,0.08)"><span style="position:absolute;top:12px;left:13px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#2E5BFF">10</span><span style="position:absolute;left:13px;bottom:11px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7d7f88">Museum · Halle</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- velocity text row -->
+    <div data-marquee-row data-dir="-1" data-base="6" style="overflow:hidden;width:100%;padding:6px 0 70px">
+      <div data-marquee-track style="display:flex;flex-wrap:nowrap;width:max-content;will-change:transform;align-items:center">
+        <span style="flex:none;font-size:clamp(40px,6vw,86px);font-weight:800;letter-spacing:-0.035em;text-transform:uppercase;color:#15161A;margin-right:34px;line-height:1">Selected Work</span>
+        <span style="flex:none;font-size:clamp(40px,6vw,86px);font-weight:800;letter-spacing:-0.035em;text-transform:uppercase;color:#2E5BFF;margin-right:34px;line-height:1">·</span>
+        <span style="flex:none;font-size:clamp(40px,6vw,86px);font-weight:800;letter-spacing:-0.035em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.4px rgba(21,22,26,0.55);margin-right:34px;line-height:1">Veduta Studio</span>
+        <span style="flex:none;font-size:clamp(40px,6vw,86px);font-weight:800;letter-spacing:-0.035em;text-transform:uppercase;color:#2E5BFF;margin-right:34px;line-height:1">·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" style="scroll-margin-top:80px;max-width:1280px;margin:0 auto;padding:100px 40px 30px">
+    <div style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center">
+      <div data-reveal style="opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease">
+        <div onmousemove="tiltSoft(event)" onmouseleave="untilt(event)" style="aspect-ratio:4/5;border-radius:10px;overflow:hidden;position:relative;background-image:repeating-linear-gradient(135deg,#d8d8e1 0 16px,#ecedf2 16px 32px);border:1px solid rgba(0,0,0,0.08);transition:transform .3s ease,box-shadow .4s ease;cursor:pointer">
+          <span style="position:absolute;left:16px;bottom:16px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#7d7f88">Porträt · der Fotograf</span>
+        </div>
+      </div>
+      <div>
+        <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#2E5BFF;margin-bottom:18px">ÜBER DAS STUDIO</div>
+        <h2 data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s ease;font-size:42px;font-weight:800;letter-spacing:-0.03em;line-height:1.08;max-width:560px">Ein präziser Blick dafür, wie Gebäude wirklich leben.</h2>
+        <p data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease;transition-delay:.12s;margin-top:24px;max-width:540px;font-size:16.5px;line-height:1.75;color:#5a5d66">VEDUTA ist ein Ein-Personen-Studio für Architekten, Bauträger und Interior-Marken. Ich fotografiere Struktur so, wie sie erlebt wird — Licht, das über eine Fassade wandert, die Größe einer Treppe, die Ruhe eines fertigen Raums. Keine harten Filter, keine Verzerrung; nur präzise, zeitlose Aufnahmen, die Sie mit Sicherheit lizenzieren können.</p>
+        <p data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease;transition-delay:.2s;margin-top:18px;max-width:540px;font-size:16.5px;line-height:1.75;color:#5a5d66">Jeder Auftrag wird um Ihre Räume, Ihren Zeitplan und Ihre Nutzungsrechte herum geplant — und fertig für Pressemappen, Awards und das Web geliefert.</p>
+        <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease;transition-delay:.28s;display:flex;gap:40px;margin-top:36px;flex-wrap:wrap">
+          <div><div style="font-size:13px;font-weight:700">Vertrauen von</div><div style="font-family:'Space Mono',monospace;font-size:12.5px;color:#8a8d96;margin-top:6px;letter-spacing:0.04em">Studios · Bauträger · Hotels · Magazine</div></div>
+          <div><div style="font-size:13px;font-weight:700">Ansässig in</div><div style="font-family:'Space Mono',monospace;font-size:12.5px;color:#8a8d96;margin-top:6px;letter-spacing:0.04em">Zürich · verfügbar in DE / CH / AT</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES / INVESTMENT ===================== -->
+  <section style="max-width:1280px;margin:0 auto;padding:80px 40px 30px">
+    <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;margin-bottom:40px">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#2E5BFF;margin-bottom:16px">LEISTUNGEN &amp; INVESTITION</div>
+      <h2 style="font-size:42px;font-weight:800;letter-spacing:-0.03em;line-height:1">Klare Leistungen, klare Lizenzen.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch">
+      <div data-reveal style="opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease;background:#fff;border:1px solid rgba(0,0,0,0.09);border-radius:14px;padding:32px 30px;display:flex;flex-direction:column">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#8a8d96">EDITORIAL</div>
+        <div style="margin-top:14px;display:flex;align-items:baseline;gap:6px"><span style="font-size:13px;color:#8a8d96">ab</span><span style="font-size:34px;font-weight:800;letter-spacing:-0.02em">€1,200</span><span style="font-size:13px;color:#8a8d96">/ Tag</span></div>
+        <p style="margin-top:14px;font-size:14.5px;line-height:1.6;color:#5a5d66">Magazine &amp; Studio-Strecken, bei denen ein einzelner Raum die Geschichte trägt.</p>
+        <div style="height:1px;background:rgba(0,0,0,0.08);margin:22px 0"></div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#33353c">
+          <div style="display:flex;gap:10px"><span style="color:#2E5BFF">—</span>Halber oder ganzer Shooting-Tag</div>
+          <div style="display:flex;gap:10px"><span style="color:#2E5BFF">—</span>15–25 fertige Bilder</div>
+          <div style="display:flex;gap:10px"><span style="color:#2E5BFF">—</span>Online-Nutzungslizenz</div>
+          <div style="display:flex;gap:10px"><span style="color:#2E5BFF">—</span>Lieferung in 10 Tagen</div>
+        </div>
+        <a href="#contact" style="margin-top:26px;text-align:center;font-size:13.5px;font-weight:600;color:#15161A;border:1px solid rgba(0,0,0,0.16);padding:13px;border-radius:9px">Anfragen</a>
+      </div>
+      <div data-reveal style="opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease;transition-delay:.08s;background:#15161A;color:#fff;border:1px solid #15161A;border-radius:14px;padding:32px 30px;display:flex;flex-direction:column;position:relative;box-shadow:0 40px 80px -36px rgba(46,91,255,0.5)">
+        <span style="position:absolute;top:22px;right:24px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#fff;background:#2E5BFF;padding:5px 10px;border-radius:100px">AM HÄUFIGSTEN</span>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#9aa0ff">COMMERCIAL</div>
+        <div style="margin-top:14px;display:flex;align-items:baseline;gap:6px"><span style="font-size:13px;color:#9a9da6">ab</span><span style="font-size:34px;font-weight:800;letter-spacing:-0.02em">€2,400</span><span style="font-size:13px;color:#9a9da6">/ Projekt</span></div>
+        <p style="margin-top:14px;font-size:14.5px;line-height:1.6;color:#b9bbc2">Multi-Raum-Kampagnen für Bauträger und Marken, durchgängig art-directed.</p>
+        <div style="height:1px;background:rgba(255,255,255,0.14);margin:22px 0"></div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#e4e5e8">
+          <div style="display:flex;gap:10px"><span style="color:#6f8bff">—</span>Multi-Raum-Shooting</div>
+          <div style="display:flex;gap:10px"><span style="color:#6f8bff">—</span>30–60 fertige Bilder</div>
+          <div style="display:flex;gap:10px"><span style="color:#6f8bff">—</span>Print- + Online-Lizenz</div>
+          <div style="display:flex;gap:10px"><span style="color:#6f8bff">—</span>Art-Direction inklusive</div>
+          <div style="display:flex;gap:10px"><span style="color:#6f8bff">—</span>Lieferung in 7 Tagen</div>
+        </div>
+        <a href="#contact" style="margin-top:26px;text-align:center;font-size:13.5px;font-weight:600;color:#fff;background:#2E5BFF;padding:13px;border-radius:9px">Angebot anfragen</a>
+      </div>
+      <div data-reveal style="opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease;transition-delay:.16s;background:#fff;border:1px solid rgba(0,0,0,0.09);border-radius:14px;padding:32px 30px;display:flex;flex-direction:column">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.18em;color:#8a8d96">ARCHITECTURE</div>
+        <div style="margin-top:14px;display:flex;align-items:baseline;gap:6px"><span style="font-size:13px;color:#8a8d96">ab</span><span style="font-size:34px;font-weight:800;letter-spacing:-0.02em">€3,600</span><span style="font-size:13px;color:#8a8d96">/ Projekt</span></div>
+        <p style="margin-top:14px;font-size:14.5px;line-height:1.6;color:#5a5d66">Vollständige Gebäudedokumentation, innen und außen, über alle Lichtstimmungen.</p>
+        <div style="height:1px;background:rgba(0,0,0,0.08);margin:22px 0"></div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#33353c">
+          <div style="display:flex;gap:10px"><span style="color:#2E5BFF">—</span>Außen + innen</div>
+          <div style="display:flex;gap:10px"><span style="color:#2E5BFF">—</span>Dämmerung / blaue Stunde</div>
+          <div style="display:flex;gap:10px"><span style="color:#2E5BFF">—</span>Erweiterte Lizenz</div>
+          <div style="display:flex;gap:10px"><span style="color:#2E5BFF">—</span>Drohne optional</div>
+          <div style="display:flex;gap:10px"><span style="color:#2E5BFF">—</span>Geplante Lieferung</div>
+        </div>
+        <a href="#contact" style="margin-top:26px;text-align:center;font-size:13.5px;font-weight:600;color:#15161A;border:1px solid rgba(0,0,0,0.16);padding:13px;border-radius:9px">Anfragen</a>
+      </div>
+    </div>
+    <div style="font-family:'Space Mono',monospace;font-size:11px;color:#9a9da6;margin-top:18px;letter-spacing:0.06em">* Richtwerte — jedes Projekt wird nach Umfang, Ort und Lizenz kalkuliert.</div>
+  </section>
+
+  <!-- ===================== WORKFLOW ===================== -->
+  <section style="max-width:1280px;margin:0 auto;padding:70px 40px 90px">
+    <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#2E5BFF;margin-bottom:34px">SO LÄUFT ES AB</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
+      <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease;border-top:2px solid #2E5BFF;padding-top:20px">
+        <div style="font-family:'Space Mono',monospace;font-size:13px;color:#2E5BFF;letter-spacing:0.1em">01</div>
+        <div style="font-size:19px;font-weight:700;margin-top:12px;letter-spacing:-0.01em">Briefing &amp; Umfang</div>
+        <p style="font-size:14px;line-height:1.6;color:#5a5d66;margin-top:10px">Wir stimmen Räume, Stimmung, Lizenz und Zeitplan ab, bevor fotografiert wird.</p>
+      </div>
+      <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease;transition-delay:.08s;border-top:2px solid rgba(0,0,0,0.12);padding-top:20px">
+        <div style="font-family:'Space Mono',monospace;font-size:13px;color:#8a8d96;letter-spacing:0.1em">02</div>
+        <div style="font-size:19px;font-weight:700;margin-top:12px;letter-spacing:-0.01em">Shooting</div>
+        <p style="font-size:14px;line-height:1.6;color:#5a5d66;margin-top:10px">Vor Ort mit natürlichem und ergänzendem Licht, getethert direkt geprüft.</p>
+      </div>
+      <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease;transition-delay:.16s;border-top:2px solid rgba(0,0,0,0.12);padding-top:20px">
+        <div style="font-family:'Space Mono',monospace;font-size:13px;color:#8a8d96;letter-spacing:0.1em">03</div>
+        <div style="font-size:19px;font-weight:700;margin-top:12px;letter-spacing:-0.01em">Auswahl &amp; Bearbeitung</div>
+        <p style="font-size:14px;line-height:1.6;color:#5a5d66;margin-top:10px">Eine kuratierte Auswahl mit zeitloser, formtreuer Bearbeitung — nie überzogen.</p>
+      </div>
+      <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease;transition-delay:.24s;border-top:2px solid rgba(0,0,0,0.12);padding-top:20px">
+        <div style="font-family:'Space Mono',monospace;font-size:13px;color:#8a8d96;letter-spacing:0.1em">04</div>
+        <div style="font-size:19px;font-weight:700;margin-top:12px;letter-spacing:-0.01em">Lieferung &amp; Lizenz</div>
+        <p style="font-size:14px;line-height:1.6;color:#5a5d66;margin-top:10px">Web- + Print-Dateien, klare Nutzungsrechte schriftlich und archivierte Originale.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INSTAGRAM STRIP ===================== -->
+  <section style="background:#F4F4F2;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06)">
+    <div style="max-width:1280px;margin:0 auto;padding:56px 40px">
+      <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:26px">
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;color:#2E5BFF">@VEDUTA.STUDIO</div>
+          <div style="font-size:24px;font-weight:800;letter-spacing:-0.02em;margin-top:8px">Aktuelles auf Instagram</div>
+        </div>
+        <a href="#" style="font-size:13.5px;font-weight:600;border-bottom:1.5px solid #2E5BFF;padding-bottom:4px">Folgen →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px">
+        <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease"><div onmousemove="tiltSoft(event)" onmouseleave="untilt(event)" style="aspect-ratio:1/1;border-radius:7px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d8d8e1 0 13px,#ecedf2 13px 26px);border:1px solid rgba(0,0,0,0.07);transition:transform .3s ease,box-shadow .4s ease;cursor:pointer"></div></div>
+        <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;transition-delay:.05s"><div onmousemove="tiltSoft(event)" onmouseleave="untilt(event)" style="aspect-ratio:1/1;border-radius:7px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d4d4de 0 13px,#e8e9ef 13px 26px);border:1px solid rgba(0,0,0,0.08);transition:transform .3s ease,box-shadow .4s ease;cursor:pointer"></div></div>
+        <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;transition-delay:.1s"><div onmousemove="tiltSoft(event)" onmouseleave="untilt(event)" style="aspect-ratio:1/1;border-radius:7px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d8d8e1 0 13px,#ecedf2 13px 26px);border:1px solid rgba(0,0,0,0.07);transition:transform .3s ease,box-shadow .4s ease;cursor:pointer"></div></div>
+        <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;transition-delay:.15s"><div onmousemove="tiltSoft(event)" onmouseleave="untilt(event)" style="aspect-ratio:1/1;border-radius:7px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d4d4de 0 13px,#e8e9ef 13px 26px);border:1px solid rgba(0,0,0,0.08);transition:transform .3s ease,box-shadow .4s ease;cursor:pointer"></div></div>
+        <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;transition-delay:.2s"><div onmousemove="tiltSoft(event)" onmouseleave="untilt(event)" style="aspect-ratio:1/1;border-radius:7px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d8d8e1 0 13px,#ecedf2 13px 26px);border:1px solid rgba(0,0,0,0.07);transition:transform .3s ease,box-shadow .4s ease;cursor:pointer"></div></div>
+        <div data-reveal style="opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;transition-delay:.25s"><div onmousemove="tiltSoft(event)" onmouseleave="untilt(event)" style="aspect-ratio:1/1;border-radius:7px;overflow:hidden;background-image:repeating-linear-gradient(135deg,#d4d4de 0 13px,#e8e9ef 13px 26px);border:1px solid rgba(0,0,0,0.08);transition:transform .3s ease,box-shadow .4s ease;cursor:pointer"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq" style="scroll-margin-top:80px;max-width:900px;margin:0 auto;padding:100px 40px 90px">
+    <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;margin-bottom:40px;text-align:center">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#2E5BFF;margin-bottom:16px">HÄUFIGE FRAGEN</div>
+      <h2 style="font-size:42px;font-weight:800;letter-spacing:-0.03em">Gut zu wissen</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div data-faq data-open="0" data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;background:#fff;border:1px solid rgba(0,0,0,0.1);border-radius:12px;overflow:hidden">
+        <div onclick="toggleFaq(event)" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;cursor:pointer">
+          <span style="font-size:17px;font-weight:700;letter-spacing:-0.01em">Wem gehören die Fotografien?</span>
+          <span data-faq-icon style="font-size:22px;font-weight:400;color:#2E5BFF;transition:transform .3s ease;line-height:1">+</span>
+        </div>
+        <div data-faq-panel style="max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease"><p style="padding:0 26px 24px;font-size:15px;line-height:1.7;color:#5a5d66">Das Urheberrecht verbleibt beim Studio. Sie erhalten die vereinbarte Nutzungslizenz schriftlich — Umfang, Kanäle und Dauer — damit Ihr Team stets genau weiß, was abgedeckt ist.</p></div>
+      </div>
+      <div data-faq data-open="0" data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;transition-delay:.05s;background:#fff;border:1px solid rgba(0,0,0,0.1);border-radius:12px;overflow:hidden">
+        <div onclick="toggleFaq(event)" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;cursor:pointer">
+          <span style="font-size:17px;font-weight:700;letter-spacing:-0.01em">Wie lang ist die übliche Bearbeitungszeit?</span>
+          <span data-faq-icon style="font-size:22px;font-weight:400;color:#2E5BFF;transition:transform .3s ease;line-height:1">+</span>
+        </div>
+        <div data-faq-panel style="max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease"><p style="padding:0 26px 24px;font-size:15px;line-height:1.7;color:#5a5d66">Editorial-Strecken liefere ich innerhalb von 10 Tagen, kommerzielle Projekte innerhalb von 7. Schneller nötig? Für zeitkritische Launches gibt es eine Express-Option.</p></div>
+      </div>
+      <div data-faq data-open="0" data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;transition-delay:.1s;background:#fff;border:1px solid rgba(0,0,0,0.1);border-radius:12px;overflow:hidden">
+        <div onclick="toggleFaq(event)" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;cursor:pointer">
+          <span style="font-size:17px;font-weight:700;letter-spacing:-0.01em">Reisen Sie für Shootings?</span>
+          <span data-faq-icon style="font-size:22px;font-weight:400;color:#2E5BFF;transition:transform .3s ease;line-height:1">+</span>
+        </div>
+        <div data-faq-panel style="max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease"><p style="padding:0 26px 24px;font-size:15px;line-height:1.7;color:#5a5d66">Ja — standardmäßig in Deutschland, der Schweiz und Österreich, auf Anfrage auch international. Reise und Logistik werden immer transparent im Voraus ausgewiesen.</p></div>
+      </div>
+      <div data-faq data-open="0" data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;transition-delay:.15s;background:#fff;border:1px solid rgba(0,0,0,0.1);border-radius:12px;overflow:hidden">
+        <div onclick="toggleFaq(event)" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;cursor:pointer">
+          <span style="font-size:17px;font-weight:700;letter-spacing:-0.01em">Welche Dateien erhalte ich?</span>
+          <span data-faq-icon style="font-size:22px;font-weight:400;color:#2E5BFF;transition:transform .3s ease;line-height:1">+</span>
+        </div>
+        <div data-faq-panel style="max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease"><p style="padding:0 26px 24px;font-size:15px;line-height:1.7;color:#5a5d66">Farbverbindliche, hochauflösende JPEGs für Web und Print, TIFFs auf Anfrage. Alles kommt über eine private Galerie, die Sie herunterladen und teilen können.</p></div>
+      </div>
+      <div data-faq data-open="0" data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;transition-delay:.2s;background:#fff;border:1px solid rgba(0,0,0,0.1);border-radius:12px;overflow:hidden">
+        <div onclick="toggleFaq(event)" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;cursor:pointer">
+          <span style="font-size:17px;font-weight:700;letter-spacing:-0.01em">Fotografieren Sie Personen vor Ort?</span>
+          <span data-faq-icon style="font-size:22px;font-weight:400;color:#2E5BFF;transition:transform .3s ease;line-height:1">+</span>
+        </div>
+        <div data-faq-panel style="max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease"><p style="padding:0 26px 24px;font-size:15px;line-height:1.7;color:#5a5d66">Nur mit Einwilligung. Für Mitarbeitende oder Besucher im Bild kümmern wir uns um Model-Releases und DSGVO-konforme Verarbeitung, sodass veröffentlichte Bilder stets freigegeben sind.</p></div>
+      </div>
+      <div data-faq data-open="0" data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;transition-delay:.25s;background:#fff;border:1px solid rgba(0,0,0,0.1);border-radius:12px;overflow:hidden">
+        <div onclick="toggleFaq(event)" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;cursor:pointer">
+          <span style="font-size:17px;font-weight:700;letter-spacing:-0.01em">Wie buche ich?</span>
+          <span data-faq-icon style="font-size:22px;font-weight:400;color:#2E5BFF;transition:transform .3s ease;line-height:1">+</span>
+        </div>
+        <div data-faq-panel style="max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease"><p style="padding:0 26px 24px;font-size:15px;line-height:1.7;color:#5a5d66">Senden Sie das Formular unten mit ein paar Angaben zu Ihren Räumen und Terminen. Sie erhalten innerhalb von 48 Stunden ein individuelles Angebot und einen vorläufigen Wunschtermin.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" style="scroll-margin-top:80px;background:#F1F1EE;color:#15161A;border-top:1px solid rgba(0,0,0,0.06)">
+    <div style="max-width:1280px;margin:0 auto;padding:96px 40px 100px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px">
+      <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease">
+        <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.24em;color:#2E5BFF;margin-bottom:18px">KONTAKT</div>
+        <h2 style="font-size:48px;font-weight:800;letter-spacing:-0.03em;line-height:1.02">Dokumentieren wir Ihren Raum.</h2>
+        <p style="margin-top:22px;max-width:380px;font-size:16px;line-height:1.7;color:#5a5d66">Erzählen Sie mir von Projekt und Zeitplan. Sie erhalten innerhalb von 48 Stunden ein individuelles Angebot und einen Wunschtermin.</p>
+        <div style="margin-top:40px;display:flex;flex-direction:column;gap:18px">
+          <div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#7d8088">E-MAIL</div><div style="font-size:15.5px;margin-top:5px">studio@veduta.example</div></div>
+          <div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#7d8088">STUDIO</div><div style="font-size:15.5px;margin-top:5px">Limmatstrasse 00 · 8005 Zürich</div></div>
+          <div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#7d8088">ZEITEN</div><div style="font-size:15.5px;margin-top:5px">Mo–Fr · 09:00–18:00</div></div>
+        </div>
+      </div>
+      <div data-reveal data-form-wrap style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;transition-delay:.1s;background:#fff;border:1px solid rgba(0,0,0,0.08);box-shadow:0 40px 90px -50px rgba(0,0,0,0.35);border-radius:16px;padding:36px 34px">
+        <form onsubmit="return submitForm(event)" novalidate>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+            <div style="display:flex;flex-direction:column">
+              <label style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#8a8d96;margin-bottom:8px">NAME</label>
+              <input name="name" type="text" placeholder="Ihr Name" style="background:#fff;border:1px solid rgba(0,0,0,0.16);border-radius:9px;padding:13px 14px;font-size:15px;color:#15161A;transition:border-color .2s ease" />
+              <span data-err style="font-family:'Space Mono',monospace;font-size:10.5px;color:#e0524a;opacity:0;transition:opacity .2s ease;margin-top:6px;min-height:13px">&nbsp;</span>
+            </div>
+            <div style="display:flex;flex-direction:column">
+              <label style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#8a8d96;margin-bottom:8px">E-MAIL</label>
+              <input name="email" type="email" placeholder="you@studio.com" style="background:#fff;border:1px solid rgba(0,0,0,0.16);border-radius:9px;padding:13px 14px;font-size:15px;color:#15161A;transition:border-color .2s ease" />
+              <span data-err style="font-family:'Space Mono',monospace;font-size:10.5px;color:#e0524a;opacity:0;transition:opacity .2s ease;margin-top:6px;min-height:13px">&nbsp;</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;margin-top:6px">
+            <label style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#8a8d96;margin-bottom:8px">PROJEKTTYP</label>
+            <select name="type" style="background:#fff;border:1px solid rgba(0,0,0,0.16);border-radius:9px;padding:13px 14px;font-size:15px;color:#15161A;transition:border-color .2s ease">
+              <option value="">Bereich wählen …</option>
+              <option value="Office">Büro</option>
+              <option value="Hospitality">Hotellerie</option>
+              <option value="Retail">Retail</option>
+              <option value="Residential">Wohnen</option>
+              <option value="Other">Sonstige</option>
+            </select>
+            <span style="min-height:13px;margin-top:6px"></span>
+          </div>
+          <div style="display:flex;flex-direction:column">
+            <label style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#8a8d96;margin-bottom:8px">PROJEKTDETAILS</label>
+            <textarea name="message" rows="4" placeholder="Räume, Ort, Zeitplan, geplante Nutzung …" style="background:#fff;border:1px solid rgba(0,0,0,0.16);border-radius:9px;padding:13px 14px;font-size:15px;color:#15161A;resize:vertical;transition:border-color .2s ease"></textarea>
+            <span data-err style="font-family:'Space Mono',monospace;font-size:10.5px;color:#e0524a;opacity:0;transition:opacity .2s ease;margin-top:6px;min-height:13px">&nbsp;</span>
+          </div>
+          <button type="submit" style="margin-top:14px;width:100%;background:#2E5BFF;color:#fff;border:none;border-radius:10px;padding:16px;font-size:15px;font-weight:600;letter-spacing:0.01em;cursor:pointer">Anfrage senden →</button>
+          <div style="font-family:'Space Mono',monospace;font-size:10.5px;color:#9a9da6;margin-top:14px;text-align:center;letter-spacing:0.04em">Antwort meist binnen 48 h · Unverbindlich</div>
+        </form>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div style="border-top:1px solid rgba(0,0,0,0.08)">
+      <div style="max-width:1280px;margin:0 auto;padding:48px 40px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px">
+        <div>
+          <div style="font-weight:900;font-size:20px">VEDUTA<span style="color:#2E5BFF">.</span></div>
+          <p style="margin-top:14px;max-width:240px;font-size:13.5px;line-height:1.6;color:#8a8d96">Architektur- &amp; Interior-Fotografie. Platzhalter-Marke — ersetzen Sie Name, Arbeiten und Angaben.</p>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#7d8088;margin-bottom:14px">STUDIO</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:#5a5d66"><a href="#gallery">Projekte</a><a href="#about">Leistungen</a><a href="#about">Über mich</a><a href="#faq">FAQ</a></div>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#7d8088;margin-bottom:14px">SOCIAL</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:#5a5d66"><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Behance</a></div>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:#7d8088;margin-bottom:14px">RECHTLICHES</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:#5a5d66"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Cookie-Einstellungen</a></div>
+        </div>
+      </div>
+      <div style="max-width:1280px;margin:0 auto;padding:0 40px 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:'Space Mono',monospace;font-size:11px;color:#b3b5bc;letter-spacing:0.06em">
+        <span>© 2026 VEDUTA · Platzhalter-Studio</span>
+        <span>Für echte Fotografie gebaut — fügen Sie Ihre Bilder ein</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  // ---- Hover interactions (3D tilt) ----
+  function tiltSoft(e) {
+    const el = e.currentTarget;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `perspective(1000px) rotateY(${px * 7}deg) rotateX(${-py * 7}deg) translateZ(20px) scale(1.03)`;
+    el.style.boxShadow = '0 44px 80px -28px rgba(20,22,30,0.34)';
+    el.style.zIndex = '40';
+  }
+  function untilt(e) {
+    const el = e.currentTarget;
+    el.style.transform = '';
+    el.style.boxShadow = '';
+    el.style.zIndex = '';
+  }
+
+  // ---- FAQ accordion ----
+  function toggleFaq(e) {
+    const item = e.currentTarget.closest('[data-faq]');
+    const panel = item.querySelector('[data-faq-panel]');
+    const icon = item.querySelector('[data-faq-icon]');
+    const open = item.getAttribute('data-open') === '1';
+    if (open) {
+      panel.style.maxHeight = '0px';
+      panel.style.opacity = '0';
+      icon.style.transform = 'rotate(0deg)';
+      item.setAttribute('data-open', '0');
+      item.style.borderColor = 'rgba(0,0,0,0.1)';
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      panel.style.opacity = '1';
+      icon.style.transform = 'rotate(45deg)';
+      item.setAttribute('data-open', '1');
+      item.style.borderColor = '#2E5BFF';
+    }
+  }
+
+  // ---- Contact form (client-side validate + confirmation) ----
+  function submitForm(e) {
+    e.preventDefault();
+    const f = e.currentTarget;
+    const name = f.querySelector('[name="name"]');
+    const email = f.querySelector('[name="email"]');
+    const msg = f.querySelector('[name="message"]');
+    const setErr = (el, show, text) => {
+      const er = el.parentElement.querySelector('[data-err]');
+      if (er) { er.textContent = show ? text : ' '; er.style.opacity = show ? '1' : '0'; }
+      el.style.borderColor = show ? '#e0524a' : 'rgba(0,0,0,0.16)';
+    };
+    const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim());
+    let ok = true;
+    if (!name.value.trim()) { setErr(name, true, 'Bitte geben Sie Ihren Namen ein'); ok = false; } else setErr(name, false);
+    if (!emailOk) { setErr(email, true, 'Gültige E-Mail eingeben'); ok = false; } else setErr(email, false);
+    if (!msg.value.trim()) { setErr(msg, true, 'Erzählen Sie vom Projekt'); ok = false; } else setErr(msg, false);
+    if (!ok) return false;
+    const wrap = document.querySelector('[data-form-wrap]');
+    const nm = name.value.trim().split(' ')[0];
+    wrap.innerHTML = '<div style="text-align:center;padding:40px 20px"><div style="width:56px;height:56px;border-radius:50%;background:#EEF1FF;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:26px;color:#2E5BFF">✓</div><div style="font-size:24px;font-weight:800;letter-spacing:-0.02em;color:#15161A">Danke, ' + (nm || 'there') + '.</div><p style="margin-top:12px;font-size:15px;line-height:1.65;color:#5a5d66;max-width:320px;margin-left:auto;margin-right:auto">Ihre Anfrage ist eingegangen. Ich melde mich innerhalb von 48 Stunden mit einem individuellen Angebot und einem Wunschtermin.</p><div style="font-family:\'Space Mono\',monospace;font-size:10.5px;letter-spacing:0.14em;color:#9a9da6;margin-top:22px">REF · VEDUTA-' + Date.now().toString().slice(-6) + '</div></div>';
+    return false;
+  }
+
+  // ---- Scroll reveals + zoom-parallax gallery + scroll-to-expand hero + velocity marquee ----
+  function init() {
+    const reveal = (t) => {
+      const m = t.getAttribute('data-reveal');
+      if (m === 'mask') { t.style.clipPath = 'inset(0 0 0 0)'; }
+      else { t.style.opacity = '1'; t.style.transform = 'none'; }
+    };
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('[data-reveal]').forEach(reveal);
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) { reveal(en.target); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+      requestAnimationFrame(() => {
+        document.querySelectorAll('[data-reveal]').forEach((n) => io.observe(n));
+      });
+    }
+
+    // ---- Scroll-driven zoom-parallax gallery ----
+    const zc = document.querySelector('[data-zoom-container]');
+    if (zc) {
+      const frames = [...document.querySelectorAll('[data-zoom]')];
+      const clamp = (v) => v < 0 ? 0 : v > 1 ? 1 : v;
+      const update = () => {
+        const rect = zc.getBoundingClientRect();
+        const total = rect.height - window.innerHeight;
+        const p = clamp(total > 0 ? (-rect.top) / total : 0);
+        for (const f of frames) {
+          const target = parseFloat(f.getAttribute('data-scale')) || 4;
+          f.style.transform = 'scale(' + (1 + (target - 1) * p) + ')';
+        }
+      };
+      let running = false;
+      const loop = () => { if (!running) return; update(); requestAnimationFrame(loop); };
+      const start = () => { if (!running) { running = true; requestAnimationFrame(loop); } };
+      const stop = () => { running = false; update(); };
+      if ('IntersectionObserver' in window) {
+        const vis = new IntersectionObserver((ents) => {
+          ents.forEach((en) => { en.isIntersecting ? start() : stop(); });
+        }, { rootMargin: '200px 0px 200px 0px' });
+        vis.observe(zc);
+      } else {
+        start();
+      }
+      update();
+    }
+
+    // ---- Scroll-to-expand hero (wheel/touch driven, locks page until expanded) ----
+    const heroSec = document.querySelector('[data-hero]');
+    if (heroSec) {
+      const bg = heroSec.querySelector('[data-hero-bg]');
+      const media = heroSec.querySelector('[data-hero-media]');
+      const ov = heroSec.querySelector('[data-hero-overlay]');
+      const t1 = heroSec.querySelector('[data-hero-t1]');
+      const t2 = heroSec.querySelector('[data-hero-t2]');
+      const dt = heroSec.querySelector('[data-hero-date]');
+      const cue = heroSec.querySelector('[data-hero-cue]');
+      const content = heroSec.querySelector('[data-hero-content]');
+      const clamp = (v) => v < 0 ? 0 : v > 1 ? 1 : v;
+      let progress = 0, expanded = false, touchY = 0;
+      const isMobile = () => window.innerWidth < 768;
+      const apply = () => {
+        const mob = isMobile();
+        const w = 300 + progress * (mob ? 650 : 1250);
+        const h = 400 + progress * (mob ? 200 : 400);
+        const tx = progress * (mob ? 180 : 150);
+        media.style.width = w + 'px';
+        media.style.height = h + 'px';
+        if (bg) bg.style.opacity = String(1 - progress);
+        if (ov) ov.style.opacity = String(0.55 - progress * 0.4);
+        t1.style.transform = 'translateX(-' + tx + 'vw)';
+        t2.style.transform = 'translateX(' + tx + 'vw)';
+        if (dt) dt.style.transform = 'translateX(-' + tx + 'vw)';
+        if (cue) { cue.style.transform = 'translateX(' + tx + 'vw)'; cue.style.opacity = String(1 - progress * 1.6); }
+        if (content) content.style.opacity = progress >= 1 ? '1' : '0';
+      };
+      const setProg = (np) => {
+        progress = clamp(np);
+        apply();
+        if (progress >= 1) expanded = true;
+        else if (progress < 0.999) expanded = false;
+      };
+      const onWheel = (e) => {
+        if (expanded && e.deltaY < 0 && window.scrollY <= 5) {
+          e.preventDefault(); setProg(progress - 0.03);
+        } else if (!expanded) {
+          e.preventDefault(); setProg(progress + e.deltaY * 0.0011);
+        }
+      };
+      const onScroll = () => { if (!expanded) window.scrollTo(0, 0); };
+      const onTS = (e) => { touchY = e.touches[0].clientY; };
+      const onTM = (e) => {
+        if (!touchY) return;
+        const ty = e.touches[0].clientY;
+        const dy = touchY - ty;
+        if (expanded && dy < -20 && window.scrollY <= 5) { e.preventDefault(); setProg(progress - 0.05); }
+        else if (!expanded) {
+          e.preventDefault();
+          setProg(progress + dy * (dy < 0 ? 0.008 : 0.005));
+          touchY = ty;
+        }
+      };
+      const onTE = () => { touchY = 0; };
+      window.addEventListener('wheel', onWheel, { passive: false });
+      window.addEventListener('scroll', onScroll);
+      window.addEventListener('touchstart', onTS, { passive: false });
+      window.addEventListener('touchmove', onTM, { passive: false });
+      window.addEventListener('touchend', onTE);
+      window.addEventListener('resize', apply);
+      apply();
+    }
+
+    // ---- Scroll-velocity marquee (Das Archiv) ----
+    const rows = [...document.querySelectorAll('[data-marquee-row]')];
+    if (rows.length) {
+      const wrapv = (min, max, v) => { const r = max - min; return min + ((((v - min) % r) + r) % r); };
+      const state = rows.map((row) => {
+        const track = row.querySelector('[data-marquee-track]');
+        if (track) track.innerHTML += track.innerHTML; // duplicate for seamless -50% wrap
+        return {
+          track,
+          base: parseFloat(row.getAttribute('data-base')) || 3,
+          dir: parseFloat(row.getAttribute('data-dir')) || 1,
+          pos: 0,
+        };
+      });
+      let lastY = window.scrollY || window.pageYOffset || 0;
+      let vel = 0, lastT = performance.now();
+      const tick = (now) => {
+        let dt = now - lastT; lastT = now;
+        if (dt > 80) dt = 16;
+        const y = window.scrollY || window.pageYOffset || 0;
+        const inst = y - lastY; lastY = y;
+        vel += (inst - vel) * 0.18;                 // smoothed scroll velocity
+        const vFactor = Math.min(Math.abs(vel) / 6, 5); // 0..5, like the source mapping
+        const scrollDir = vel < -0.4 ? -1 : (vel > 0.4 ? 1 : 0);
+        for (const s of state) {
+          if (!s.track) continue;
+          const d = scrollDir !== 0 ? s.dir * scrollDir : s.dir; // reverse with scroll direction
+          let moveBy = d * s.base * (dt / 1000);
+          moveBy += d * moveBy * vFactor;            // amplify with velocity
+          s.pos = wrapv(-50, 0, s.pos + moveBy);
+          s.track.style.transform = 'translateX(' + s.pos + '%)';
+        }
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+</body>
+</html>

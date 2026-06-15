@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEDUTA · Navbar — 5 Design-Optionen</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { paper:'#FAFAF8', ink:'#15161A', accent:'#2E5BFF', muted:'#5a5d66', line:'rgba(0,0,0,0.08)' },
+        fontFamily: { sans:['Archivo','sans-serif'], mono:['"Space Mono"','monospace'] }
+      }
+    }
+  }
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#EDEDEA;font-family:'Archivo',sans-serif;color:#15161A}
+  /* each preview viewport scrolls on its own so nav scroll-states can be felt */
+  .viewport{height:460px;overflow-y:auto;position:relative;background:#FAFAF8;border-radius:14px}
+  .viewport::-webkit-scrollbar{width:8px}
+  .viewport::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18);border-radius:8px}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  .ulink{position:relative}
+  .ulink::after{content:"";position:absolute;left:0;bottom:-4px;height:1.5px;width:0;background:#2E5BFF;transition:width .28s ease}
+  .ulink:hover::after{width:100%}
+</style>
+</head>
+<body class="text-ink">
+
+<header class="max-w-[1100px] mx-auto px-6 pt-12 pb-6">
+  <div class="font-mono text-[11px] tracking-[0.24em] text-accent mb-3">VEDUTA STUDIO · SEKTION 01 — NAVBAR / HEADER</div>
+  <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">5 Navbar-Optionen zum Vergleichen</h1>
+  <p class="mt-3 max-w-2xl text-muted leading-relaxed">In jeder Box <strong>nach unten scrollen</strong> — dann siehst du Reveal-Animation und das Scroll-Verhalten (Shrink, Blur, Farb-Invert, Detach …). Marke/Palette wie auf der Live-Seite gehalten (Archivo + Space Mono, Akzent <span class="text-accent font-semibold">#2E5BFF</span>). Jede Option ist auf <strong>Next.js + Tailwind + shadcn/ui</strong> übertragbar.</p>
+</header>
+
+<main class="max-w-[1100px] mx-auto px-6 pb-24 space-y-10">
+
+  <!-- ============ OPTION 1 — MINIMAL HAIRLINE ============ -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-3">
+      <span class="font-mono text-accent text-sm">01</span>
+      <h2 class="text-xl font-bold tracking-tight">Minimal Hairline</h2>
+      <span class="text-muted text-sm">— ruhig, editorial, „lässt die Bilder sprechen"</span>
+    </div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> beim Scrollen verdichtet sich die Bar (Padding ↓, Hairline + Blur ein). <strong>Micro:</strong> animierter Unterstrich pro Link, CTA hebt leicht ab. <strong>shadcn:</strong> <code>NavigationMenu</code> + <code>Button</code>.</p>
+    <div class="viewport border border-line" data-prev="1">
+      <nav data-nav class="sticky top-0 z-30 transition-all duration-300 bg-paper/0 backdrop-blur-0 border-b border-transparent">
+        <div class="max-w-[940px] mx-auto px-7 flex items-center justify-between transition-all duration-300" data-bar style="padding-top:22px;padding-bottom:22px">
+          <a class="font-extrabold text-lg tracking-tight">VEDUTA<span class="text-accent">.</span></a>
+          <div class="hidden sm:flex items-center gap-7 text-[13.5px] text-muted">
+            <a class="ulink">Projekte</a><a class="ulink">Studio</a><a class="ulink">Leistungen</a><a class="ulink">FAQ</a>
+            <a class="text-white bg-accent px-4 py-2.5 rounded-lg font-semibold text-[13px] hover:-translate-y-0.5 transition-transform">Angebot anfragen</a>
+          </div>
+        </div>
+      </nav>
+      <div class="px-7">
+        <div class="h-[180px] rounded-xl mt-5 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=60')"></div>
+        <p class="font-mono text-[11px] tracking-[0.2em] text-muted mt-5">SCROLLEN ↓ — BAR VERDICHTET SICH</p>
+        <div class="h-[420px]"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPTION 2 — FLOATING ISLAND ============ -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-3">
+      <span class="font-mono text-accent text-sm">02</span>
+      <h2 class="text-xl font-bold tracking-tight">Floating Island (Pill)</h2>
+      <span class="text-muted text-sm">— modern, „Linear/Vercel"-Anmutung</span>
+    </div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> zentrierte Pille löst sich beim Scrollen vom Rand, schrumpft &amp; bekommt Schatten. <strong>Micro:</strong> aktiver Link als gleitendes Pill-Highlight. <strong>shadcn:</strong> <code>Menubar</code> in <code>Card</code>.</p>
+    <div class="viewport border border-line" data-prev="2">
+      <nav class="sticky top-0 z-30 flex justify-center transition-all duration-300" data-nav style="padding-top:18px">
+        <div data-bar class="flex items-center gap-1 bg-white/85 backdrop-blur border border-line rounded-full px-2 py-1.5 transition-all duration-300 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.15)]">
+          <a class="font-extrabold text-[15px] tracking-tight px-3">VEDUTA<span class="text-accent">.</span></a>
+          <a class="px-3.5 py-2 rounded-full text-[13px] text-muted hover:bg-black/5 transition">Projekte</a>
+          <a class="px-3.5 py-2 rounded-full text-[13px] text-muted hover:bg-black/5 transition">Studio</a>
+          <a class="px-3.5 py-2 rounded-full text-[13px] text-muted hover:bg-black/5 transition">FAQ</a>
+          <a class="ml-1 text-white bg-accent px-4 py-2 rounded-full font-semibold text-[12.5px] hover:scale-[1.04] transition-transform">Anfragen</a>
+        </div>
+      </nav>
+      <div class="px-7">
+        <div class="h-[180px] rounded-xl mt-4 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=900&q=60')"></div>
+        <p class="font-mono text-[11px] tracking-[0.2em] text-muted mt-5">SCROLLEN ↓ — PILLE LÖST SICH &amp; SCHRUMPFT</p>
+        <div class="h-[420px]"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPTION 3 — EDITORIAL INDEX (mit Meta-Leiste) ============ -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-3">
+      <span class="font-mono text-accent text-sm">03</span>
+      <h2 class="text-xl font-bold tracking-tight">Editorial Index</h2>
+      <span class="text-muted text-sm">— architektonisch, nummeriert, mit Meta-Ticker</span>
+    </div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> obere Meta-Leiste (Ort · Zeit) fährt beim Scrollen ein, Hauptbar bleibt. <strong>Micro:</strong> Index-Nummern (01–04) faden beim Hover ein. <strong>shadcn:</strong> custom + <code>Separator</code>.</p>
+    <div class="viewport border border-line" data-prev="3">
+      <div data-meta class="sticky top-0 z-40 bg-ink text-white/80 font-mono text-[10.5px] tracking-[0.16em] overflow-hidden transition-all duration-300" style="max-height:34px">
+        <div class="max-w-[940px] mx-auto px-7 h-[34px] flex items-center justify-between">
+          <span>ZÜRICH · 47.37°N</span><span>ARCHITEKTUR &amp; INTERIORS</span><span class="hidden sm:inline">MO–FR 09–18</span>
+        </div>
+      </div>
+      <nav class="sticky z-30 bg-paper/90 backdrop-blur border-b border-line transition-all duration-300" data-nav style="top:34px">
+        <div class="max-w-[940px] mx-auto px-7 py-4 flex items-center justify-between">
+          <a class="font-extrabold text-lg tracking-tight">VEDUTA<span class="text-accent">.</span></a>
+          <div class="hidden sm:flex items-center gap-6 text-[13px]">
+            <a class="group flex items-baseline gap-1.5"><span class="font-mono text-[10px] text-accent opacity-0 group-hover:opacity-100 transition">01</span>Projekte</a>
+            <a class="group flex items-baseline gap-1.5"><span class="font-mono text-[10px] text-accent opacity-0 group-hover:opacity-100 transition">02</span>Studio</a>
+            <a class="group flex items-baseline gap-1.5"><span class="font-mono text-[10px] text-accent opacity-0 group-hover:opacity-100 transition">03</span>Leistungen</a>
+            <a class="group flex items-baseline gap-1.5"><span class="font-mono text-[10px] text-accent opacity-0 group-hover:opacity-100 transition">04</span>FAQ</a>
+            <a class="text-ink border border-ink/20 px-4 py-2 rounded-md font-semibold text-[12.5px] hover:border-accent hover:text-accent transition">Anfragen →</a>
+          </div>
+        </div>
+      </nav>
+      <div class="px-7">
+        <div class="h-[180px] rounded-xl mt-5 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&w=900&q=60')"></div>
+        <p class="font-mono text-[11px] tracking-[0.2em] text-muted mt-5">SCROLLEN ↓ — META-LEISTE FÄHRT EIN</p>
+        <div class="h-[420px]"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPTION 4 — FULLSCREEN OVERLAY MENU ============ -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-3">
+      <span class="font-mono text-accent text-sm">04</span>
+      <h2 class="text-xl font-bold tracking-tight">Fullscreen Overlay</h2>
+      <span class="text-muted text-sm">— cineastisch, Menü als Bild-Erlebnis</span>
+    </div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> Klick auf „Menü" öffnet Vollbild-Overlay; Links erscheinen gestaffelt. <strong>Micro:</strong> Hover auf Link blendet passendes Foto ein. <strong>shadcn:</strong> <code>Sheet</code>/<code>Dialog</code>.</p>
+    <div class="viewport border border-line" data-prev="4">
+      <nav class="sticky top-0 z-30 bg-paper/85 backdrop-blur border-b border-line">
+        <div class="max-w-[940px] mx-auto px-7 py-4 flex items-center justify-between">
+          <a class="font-extrabold text-lg tracking-tight">VEDUTA<span class="text-accent">.</span></a>
+          <button data-menu-open class="flex items-center gap-2.5 text-[13px] font-semibold">
+            <span class="flex flex-col gap-[5px]"><span class="w-6 h-[2px] bg-ink"></span><span class="w-6 h-[2px] bg-ink"></span></span> Menü
+          </button>
+        </div>
+      </nav>
+      <div class="px-7">
+        <div class="h-[180px] rounded-xl mt-5 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=900&q=60')"></div>
+        <p class="font-mono text-[11px] tracking-[0.2em] text-muted mt-5">„MENÜ" KLICKEN — OVERLAY ÖFFNET</p>
+        <div class="h-[300px]"></div>
+      </div>
+      <!-- overlay (absolute within viewport) -->
+      <div data-overlay class="absolute inset-0 z-50 bg-ink text-white opacity-0 pointer-events-none transition-opacity duration-300 flex">
+        <div class="flex-1 p-9 flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="font-extrabold text-lg">VEDUTA<span class="text-accent">.</span></span>
+            <button data-menu-close class="text-2xl leading-none">✕</button>
+          </div>
+          <ul class="space-y-2">
+            <li data-ov-link class="ov-item text-4xl font-extrabold tracking-tight cursor-pointer hover:text-accent transition" data-img="1486406146926-c627a92ad1ab">Projekte</li>
+            <li data-ov-link class="ov-item text-4xl font-extrabold tracking-tight cursor-pointer hover:text-accent transition" data-img="1487958449943-2429e8be8625">Studio</li>
+            <li data-ov-link class="ov-item text-4xl font-extrabold tracking-tight cursor-pointer hover:text-accent transition" data-img="1449157291145-7efd050a4d0e">Leistungen</li>
+            <li data-ov-link class="ov-item text-4xl font-extrabold tracking-tight cursor-pointer hover:text-accent transition" data-img="1501183638710-841dd1904471">Kontakt</li>
+          </ul>
+          <div class="font-mono text-[11px] tracking-[0.16em] text-white/50">@VEDUTA.STUDIO · ZÜRICH</div>
+        </div>
+        <div data-ov-preview class="hidden md:block w-[42%] bg-cover bg-center transition-all duration-500 opacity-40" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=60')"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPTION 5 — TRANSPARENT-OVER-HERO → INVERT ============ -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-3">
+      <span class="font-mono text-accent text-sm">05</span>
+      <h2 class="text-xl font-bold tracking-tight">Transparent → Invert</h2>
+      <span class="text-muted text-sm">— über dem Hero transparent, wird beim Scrollen fest</span>
+    </div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> über dem dunklen Hero ist die Bar weiß/transparent; nach dem Hero wird sie hell mit dunklem Text. <strong>Micro:</strong> Logo-Punkt pulsiert, CTA-Border zieht ein. <strong>shadcn:</strong> <code>Button variant=ghost/solid</code>.</p>
+    <div class="viewport border border-line" data-prev="5">
+      <nav data-nav class="sticky top-0 z-30 transition-colors duration-300 text-white" style="background:transparent">
+        <div class="max-w-[940px] mx-auto px-7 py-4 flex items-center justify-between">
+          <a class="font-extrabold text-lg tracking-tight">VEDUTA<span class="text-accent animate-pulse">.</span></a>
+          <div class="hidden sm:flex items-center gap-7 text-[13.5px]">
+            <a class="ulink" data-navlink>Projekte</a><a class="ulink" data-navlink>Studio</a><a class="ulink" data-navlink>FAQ</a>
+            <a data-cta class="px-4 py-2.5 rounded-lg font-semibold text-[13px] border border-white/70 hover:bg-white hover:text-ink transition">Angebot anfragen</a>
+          </div>
+        </div>
+      </nav>
+      <div class="h-[300px] bg-cover bg-center relative" style="background-image:url('https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?auto=format&fit=crop&w=1000&q=60')">
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="relative h-full flex items-end p-7"><span class="text-white font-extrabold text-3xl tracking-tight">Räume, dokumentiert.</span></div>
+      </div>
+      <div class="px-7 bg-paper">
+        <p class="font-mono text-[11px] tracking-[0.2em] text-muted mt-6">SCROLLEN ↓ — BAR WIRD HELL, TEXT DUNKEL</p>
+        <div class="h-[420px]"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="max-w-[1100px] mx-auto px-6 pb-16 text-sm text-muted">
+  <div class="border-t border-line pt-6">Nach deiner Wahl baue ich die Sektion in <strong>Next.js + Tailwind + shadcn/ui</strong> aus (Scroll-Reveal via Framer-Motion-Anmutung, Micro-Animations, voll responsiv, a11y/`prefers-reduced-motion`). Danach: Vercel-Deploy &amp; Preview-Link.</div>
+</footer>
+
+<script>
+  // reveal on scroll (page level)
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
+
+  // per-viewport scroll states
+  document.querySelectorAll('[data-prev]').forEach(vp=>{
+    const id=vp.getAttribute('data-prev');
+    vp.addEventListener('scroll',()=>{
+      const y=vp.scrollTop;
+      const nav=vp.querySelector('[data-nav]');
+      const bar=vp.querySelector('[data-bar]');
+      if(id==='1'){
+        if(y>24){nav.style.background='rgba(250,250,248,0.85)';nav.style.backdropFilter='blur(12px)';nav.style.borderBottomColor='rgba(0,0,0,0.08)';bar.style.paddingTop='13px';bar.style.paddingBottom='13px';}
+        else{nav.style.background='rgba(250,250,248,0)';nav.style.backdropFilter='blur(0px)';nav.style.borderBottomColor='transparent';bar.style.paddingTop='22px';bar.style.paddingBottom='22px';}
+      }
+      if(id==='2'){
+        if(y>24){nav.style.paddingTop='10px';bar.style.transform='scale(0.94)';bar.style.boxShadow='0 18px 40px -16px rgba(0,0,0,0.28)';}
+        else{nav.style.paddingTop='18px';bar.style.transform='scale(1)';bar.style.boxShadow='0 8px 30px -12px rgba(0,0,0,0.15)';}
+      }
+      if(id==='3'){
+        const meta=vp.querySelector('[data-meta]');
+        if(y>20){meta.style.maxHeight='0px';nav.style.top='0px';}
+        else{meta.style.maxHeight='34px';nav.style.top='34px';}
+      }
+      if(id==='5'){
+        const cta=vp.querySelector('[data-cta]');
+        const links=vp.querySelectorAll('[data-navlink]');
+        if(y>250){nav.style.background='rgba(250,250,248,0.92)';nav.style.backdropFilter='blur(12px)';nav.classList.remove('text-white');nav.classList.add('text-ink');nav.style.borderBottom='1px solid rgba(0,0,0,0.08)';cta.style.borderColor='#2E5BFF';cta.style.color='#2E5BFF';}
+        else{nav.style.background='transparent';nav.style.backdropFilter='none';nav.classList.add('text-white');nav.classList.remove('text-ink');nav.style.borderBottom='none';cta.style.borderColor='rgba(255,255,255,0.7)';cta.style.color='';}
+      }
+    });
+  });
+
+  // option 4 overlay
+  const vp4=document.querySelector('[data-prev="4"]');
+  const ov=vp4.querySelector('[data-overlay]');
+  vp4.querySelector('[data-menu-open]').addEventListener('click',()=>{ov.style.opacity='1';ov.style.pointerEvents='auto';
+    ov.querySelectorAll('.ov-item').forEach((li,i)=>{li.style.opacity='0';li.style.transform='translateY(16px)';setTimeout(()=>{li.style.transition='all .45s ease';li.style.opacity='1';li.style.transform='none';},90*i+60);});});
+  vp4.querySelector('[data-menu-close]').addEventListener('click',()=>{ov.style.opacity='0';ov.style.pointerEvents='none';});
+  const prev=vp4.querySelector('[data-ov-preview]');
+  vp4.querySelectorAll('[data-ov-link]').forEach(li=>li.addEventListener('mouseenter',()=>{prev.style.backgroundImage="url('https://images.unsplash.com/photo-"+li.getAttribute('data-img')+"?auto=format&fit=crop&w=900&q=60')";prev.style.opacity='0.85';}));
+</script>
+</body>
+</html>

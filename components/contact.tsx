@@ -53,7 +53,7 @@ export function Contact() {
     }`;
 
   return (
-    <section id="kontakt" className="border-t border-line bg-paper">
+    <section id="kontakt" className="border-t border-line">
       <div className="mx-auto max-w-[1280px] px-6 py-20 md:px-10 md:py-28">
         <div className="grid gap-12 md:grid-cols-2 md:gap-16">
           {/* Left — form */}

@@ -2,7 +2,7 @@ import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 
 export function Gallery() {
   return (
-    <section id="projekte" className="bg-paper">
+    <section id="projekte">
       <div className="mx-auto max-w-[1280px] px-6 pb-10 pt-24 text-center md:px-10">
         <div className="font-mono text-[12px] tracking-[0.28em] text-accent">
           AUSGEWÄHLTE PROJEKTE

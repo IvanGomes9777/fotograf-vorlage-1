@@ -57,6 +57,15 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${archivo.variable} ${spaceMono.variable}`}>
       <body className="font-sans">
+        {/* Site-wide background: faint architecture photo behind everything, fixed on scroll. */}
+        <div
+          aria-hidden
+          className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "linear-gradient(180deg, rgba(250,250,248,0.90) 0%, rgba(250,250,248,0.86) 50%, rgba(250,250,248,0.92) 100%), url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000&q=60')",
+          }}
+        />
         <Navbar />
         {children}
       </body>

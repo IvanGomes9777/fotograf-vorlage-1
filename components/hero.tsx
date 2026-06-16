@@ -236,7 +236,7 @@ export function Hero() {
       </div>
 
       {/* Content — staggered reveal on scroll-in */}
-      <div className="bg-paper">
+      <div>
         <div
           ref={copy.ref}
           className="mx-auto grid max-w-[1280px] gap-12 px-6 pb-16 pt-4 md:grid-cols-2 md:items-end md:px-10"

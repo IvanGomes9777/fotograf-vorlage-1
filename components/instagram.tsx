@@ -68,7 +68,7 @@ const mediaItems = [
 
 export function InstagramStrip() {
   return (
-    <section id="instagram" className="border-t border-line bg-paper">
+    <section id="instagram" className="border-t border-line">
       <div className="mx-auto max-w-[1280px] px-6 py-20 md:px-10 md:py-28">
         <div className="mb-4 flex items-center justify-center gap-3">
           <span className="h-px w-7 bg-accent" />

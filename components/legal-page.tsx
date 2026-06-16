@@ -14,7 +14,7 @@ export function LegalPage({
   children: React.ReactNode;
 }) {
   return (
-    <main id="top" className="bg-paper">
+    <main id="top">
       <div className="mx-auto max-w-[760px] px-6 pb-24 pt-28 md:px-8 md:pt-36">
         <Link
           href="/"

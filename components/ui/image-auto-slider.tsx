@@ -15,7 +15,53 @@ const DEFAULT_IMAGES = [
   "https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&w=1200&q=75",
   "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=1200&q=75",
   "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&w=1200&q=75",
+  "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=75",
+  "https://images.unsplash.com/photo-1496564203457-11bb12075d90?auto=format&fit=crop&w=1200&q=75",
+  "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=75",
+  "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=75",
+  "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&w=1200&q=75",
+  "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=75",
 ];
+
+function Row({
+  images,
+  reverse,
+  onPick,
+}: {
+  images: string[];
+  reverse?: boolean;
+  onPick: (src: string) => void;
+}) {
+  // Duplicate for a seamless -50% loop.
+  const duplicated = [...images, ...images];
+  return (
+    <div className="w-full overflow-hidden">
+      <div
+        className={`flex w-max gap-4 animate-scroll-x hover:[animation-play-state:paused] motion-reduce:animate-none ${
+          reverse ? "[animation-direction:reverse]" : ""
+        }`}
+      >
+        {duplicated.map((src, index) => (
+          <button
+            key={index}
+            type="button"
+            onClick={() => onPick(src)}
+            aria-label={`Bild ${(index % images.length) + 1} im Vollbild öffnen`}
+            className="group h-40 w-40 flex-shrink-0 overflow-hidden rounded-xl shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:h-48 md:w-48 lg:h-56 lg:w-56"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={src}
+              alt={`Galerie ${(index % images.length) + 1}`}
+              loading="lazy"
+              className="h-full w-full cursor-zoom-in object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function ImageAutoSlider({
   images = DEFAULT_IMAGES,
@@ -24,8 +70,11 @@ export function ImageAutoSlider({
 }) {
   const [active, setActive] = React.useState<string | null>(null);
 
-  // Duplicate for a seamless -50% loop.
-  const duplicated = React.useMemo(() => [...images, ...images], [images]);
+  // Second row: rotated order so it reads as a continuation, not a mirror.
+  const rowTwo = React.useMemo(() => {
+    const half = Math.ceil(images.length / 2);
+    return [...images.slice(half), ...images.slice(0, half)];
+  }, [images]);
 
   // Lightbox: lock scroll + close on Escape.
   React.useEffect(() => {
@@ -44,28 +93,9 @@ export function ImageAutoSlider({
 
   return (
     <div className="relative w-full overflow-hidden bg-ink py-10">
-      <div className="relative z-10 w-full">
-        <div className="w-full">
-          <div className="flex w-max gap-4 animate-scroll-x hover:[animation-play-state:paused] motion-reduce:animate-none">
-            {duplicated.map((src, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => setActive(src)}
-                aria-label={`Bild ${(index % images.length) + 1} im Vollbild öffnen`}
-                className="group h-40 w-40 flex-shrink-0 overflow-hidden rounded-xl shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:h-48 md:w-48 lg:h-56 lg:w-56"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={src}
-                  alt={`Galerie ${(index % images.length) + 1}`}
-                  loading="lazy"
-                  className="h-full w-full cursor-zoom-in object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </button>
-            ))}
-          </div>
-        </div>
+      <div className="relative z-10 flex w-full flex-col gap-4">
+        <Row images={images} onPick={setActive} />
+        <Row images={rowTwo} reverse onPick={setActive} />
       </div>
 
       {/* Fullscreen lightbox */}

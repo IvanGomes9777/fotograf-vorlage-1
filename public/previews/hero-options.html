@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEDUTA · Hero — 5 Design-Optionen</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = { theme: { extend: {
+    colors:{paper:'#FAFAF8',ink:'#15161A',accent:'#2E5BFF',muted:'#5a5d66',line:'rgba(0,0,0,0.08)'},
+    fontFamily:{sans:['Archivo','sans-serif'],mono:['"Space Mono"','monospace']}
+  }}}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#EDEDEA;font-family:'Archivo',sans-serif;color:#15161A}
+  .stage{height:560px;position:relative;overflow:hidden;border-radius:16px;background:#FAFAF8}
+  .stage.scrolly{overflow-y:auto}
+  .stage::-webkit-scrollbar{width:8px}.stage::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18);border-radius:8px}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* line clip reveal */
+  .clip{clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.6,0,.2,1)}
+  .clip.in{clip-path:inset(0 0 0 0)}
+  @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.16)}}
+  .kb{animation:kenburns 14s ease-out forwards}
+  .udraw{background-image:linear-gradient(#2E5BFF,#2E5BFF);background-repeat:no-repeat;background-position:0 100%;background-size:0% 2px;transition:background-size .7s ease .3s}
+  .udraw.in{background-size:100% 2px}
+  @media (prefers-reduced-motion: reduce){.kb{animation:none}.reveal,.clip,.udraw{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="max-w-[1100px] mx-auto px-6 pt-12 pb-6">
+  <div class="font-mono text-[11px] tracking-[0.24em] text-accent mb-3">VEDUTA STUDIO · SEKTION 02 — HERO</div>
+  <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">5 Hero-Optionen zum Vergleichen</h1>
+  <p class="mt-3 max-w-2xl text-muted leading-relaxed">Maus über die Bühnen bewegen (Parallax/Tilt), bei <strong>01</strong> in der Box scrollen (Scroll-to-Expand). Marke/Palette wie Live-Seite. Alle auf <strong>Next.js + Tailwind</strong> übertragbar; Reveal später via Framer-Motion-Anmutung.</p>
+</header>
+
+<main class="max-w-[1100px] mx-auto px-6 pb-24 space-y-12">
+
+  <!-- 01 SCROLL-TO-EXPAND -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-2"><span class="font-mono text-accent text-sm">01</span><h2 class="text-xl font-bold tracking-tight">Scroll-to-Expand</h2><span class="text-muted text-sm">— wie der ursprüngliche Entwurf, cineastisch</span></div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> kleiner Rahmen wächst beim Scrollen auf Vollbild, Titel <em>VEDUTA / STUDIO</em> teilt sich, BG fadet. <strong>Micro:</strong> Cue-Pfeil pulsiert.</p>
+    <div class="stage scrolly" data-hero="1">
+      <div class="sticky top-0 h-[560px] flex items-center justify-center overflow-hidden">
+        <div data-bg class="absolute inset-0 bg-[repeating-linear-gradient(135deg,#ededeb_0_28px,#f7f7f4_28px_56px)]"></div>
+        <div data-frame class="absolute rounded-2xl overflow-hidden shadow-2xl bg-cover bg-center" style="width:280px;height:360px;background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=60')">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        </div>
+        <div class="relative z-10 flex flex-col items-center mix-blend-difference text-white pointer-events-none">
+          <span data-t1 class="font-extrabold tracking-tight leading-none" style="font-size:clamp(40px,8vw,96px)">VEDUTA</span>
+          <span data-t2 class="font-extrabold tracking-tight leading-none" style="font-size:clamp(40px,8vw,96px)">STUDIO</span>
+        </div>
+        <span class="absolute bottom-5 font-mono text-[11px] tracking-[0.2em] text-ink/60 animate-bounce">SCROLLEN ↓</span>
+      </div>
+      <div style="height:560px"></div>
+    </div>
+  </section>
+
+  <!-- 02 SPLIT EDITORIAL -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-2"><span class="font-mono text-accent text-sm">02</span><h2 class="text-xl font-bold tracking-tight">Split Editorial</h2><span class="text-muted text-sm">— clean-kommerziell (Branche V4), Text links / Bild rechts</span></div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> Text gestaffelt rein, Akzent-Unterstrich zeichnet sich. <strong>Micro:</strong> Bild folgt der Maus (Parallax-Tilt).</p>
+    <div class="stage" data-hero="2">
+      <div class="grid md:grid-cols-2 h-full">
+        <div class="flex flex-col justify-center p-9 md:p-12">
+          <div class="reveal font-mono text-[11px] tracking-[0.24em] text-accent mb-5">ARCHITEKTURFOTOGRAFIE · ZÜRICH</div>
+          <h3 class="reveal font-extrabold tracking-tight leading-[1.02]" style="font-size:clamp(34px,4.4vw,60px)">Räume,<br>dokumentiert mit <span class="udraw">Klarheit</span>.</h3>
+          <p class="reveal mt-5 max-w-sm text-muted leading-relaxed">Formtreue Architektur- und Interior-Fotografie für Studios, Bauträger und Marken.</p>
+          <div class="reveal mt-7 flex items-center gap-4">
+            <a class="bg-accent text-white px-6 py-3 rounded-lg font-semibold text-sm hover:-translate-y-0.5 transition">Angebot anfragen</a>
+            <a class="text-sm font-semibold border-b-2 border-accent pb-1">Arbeiten →</a>
+          </div>
+        </div>
+        <div class="relative overflow-hidden bg-black">
+          <div data-par class="absolute inset-0 bg-cover bg-center scale-110 transition-transform duration-200" style="background-image:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=70')"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 FULLSCREEN CINEMATIC -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-2"><span class="font-mono text-accent text-sm">03</span><h2 class="text-xl font-bold tracking-tight">Fullscreen Cinematic</h2><span class="text-muted text-sm">— vollflächiges Bild, mutig, dramatisch</span></div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> langsamer Ken-Burns-Zoom; Headline klippt zeilenweise rein. <strong>Micro:</strong> Scroll-Indikator pulsiert.</p>
+    <div class="stage" data-hero="3">
+      <div class="absolute inset-0 overflow-hidden"><div class="absolute inset-0 bg-cover bg-center kb" style="background-image:url('https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&w=1400&q=70')"></div><div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/40"></div></div>
+      <div class="relative h-full flex flex-col justify-end p-9 md:p-12 text-white">
+        <div class="font-mono text-[11px] tracking-[0.24em] text-white/80 mb-4 reveal">VEDUTA STUDIO · SEIT 2017</div>
+        <h3 class="font-extrabold tracking-tight leading-[0.98]" style="font-size:clamp(40px,6vw,84px)">
+          <span class="clip block">Architektur,</span>
+          <span class="clip block" style="transition-delay:.15s">die bleibt.</span>
+        </h3>
+        <p class="reveal mt-5 max-w-md text-white/85">Innen &amp; außen, über alle Lichtstimmungen — präzise dokumentiert.</p>
+      </div>
+      <span class="absolute bottom-5 right-6 font-mono text-[11px] tracking-[0.2em] text-white/70 animate-pulse">SCROLL ↓</span>
+    </div>
+  </section>
+
+  <!-- 04 ASYMMETRIC DEPTH GRID -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-2"><span class="font-mono text-accent text-sm">04</span><h2 class="text-xl font-bold tracking-tight">Asymmetric Depth Grid</h2><span class="text-muted text-sm">— Montage aus überlappenden Frames, 3D-Tilt</span></div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> Frames gestaffelt rein. <strong>Micro:</strong> 3D-Tilt &amp; Lift bei Hover pro Frame (Brief: asymmetrisches Raster + Tiefe).</p>
+    <div class="stage" data-hero="4">
+      <div class="relative h-full p-9">
+        <h3 class="absolute z-30 top-10 left-9 font-extrabold tracking-tight leading-none pointer-events-none" style="font-size:clamp(40px,6vw,92px)">VEDUTA<br><span class="text-accent">STUDIO</span></h3>
+        <div class="absolute inset-0" style="perspective:1200px">
+          <div data-tilt class="absolute rounded-lg overflow-hidden shadow-xl border border-line bg-cover bg-center transition-transform duration-300" style="width:38%;height:46%;top:14%;right:6%;background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=900&q=65')"></div>
+          <div data-tilt class="absolute rounded-lg overflow-hidden shadow-xl border border-line bg-cover bg-center transition-transform duration-300" style="width:30%;height:40%;bottom:9%;right:24%;background-image:url('https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?auto=format&fit=crop&w=900&q=65')"></div>
+          <div data-tilt class="absolute rounded-lg overflow-hidden shadow-xl border border-line bg-cover bg-center transition-transform duration-300" style="width:26%;height:34%;bottom:12%;left:8%;background-image:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=900&q=65')"></div>
+        </div>
+        <div class="absolute bottom-9 right-9 font-mono text-[11px] tracking-[0.2em] text-muted">ARCHITEKTUR · INTERIORS · ZÜRICH</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 MINIMAL TYPE-FIRST -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-2"><span class="font-mono text-accent text-sm">05</span><h2 class="text-xl font-bold tracking-tight">Minimal Type-First</h2><span class="text-muted text-sm">— maximaler Weißraum, Typo als Statement</span></div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> riesige Headline klippt zeilenweise rein, Meta-Zeilen faden. <strong>Micro:</strong> kleines Bild-Chip mit Hover-Zoom.</p>
+    <div class="stage flex items-center" data-hero="5">
+      <div class="px-9 md:px-14 w-full">
+        <div class="reveal font-mono text-[11px] tracking-[0.24em] text-accent mb-6">01 — ARCHITEKTUR &amp; INTERIORS</div>
+        <h3 class="font-extrabold tracking-tighter leading-[0.92]" style="font-size:clamp(44px,8vw,120px)">
+          <span class="clip block">Form.</span>
+          <span class="clip block" style="transition-delay:.12s">Licht.</span>
+          <span class="clip block text-accent" style="transition-delay:.24s">Präzision.</span>
+        </h3>
+        <div class="reveal mt-8 flex items-center gap-5 flex-wrap">
+          <div class="size-16 rounded-md overflow-hidden border border-line shrink-0"><div class="w-full h-full bg-cover bg-center hover:scale-110 transition-transform duration-500" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=300&q=60')"></div></div>
+          <p class="max-w-sm text-muted leading-relaxed">Ein Studio für Architektur- und Interior-Fotografie in Zürich. Termingerecht, klar lizenziert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="max-w-[1100px] mx-auto px-6 pb-16 text-sm text-muted"><div class="border-t border-line pt-6">Nach deiner Wahl baue ich den Hero in <strong>Next.js + Tailwind</strong> aus (Reveal, Micro-Animations, responsiv, <code>prefers-reduced-motion</code>) — danach Vercel-Deploy &amp; Preview-Link.</div></footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');}}),{threshold:.18});
+  document.querySelectorAll('.reveal,.clip,.udraw').forEach(n=>io.observe(n));
+  // also reveal nested children when their section enters
+  document.querySelectorAll('section.reveal').forEach(s=>{const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){s.querySelectorAll('.reveal,.clip,.udraw').forEach((n,i)=>setTimeout(()=>n.classList.add('in'),90*i));}}),{threshold:.2});so.observe(s);});
+
+  // 01 scroll-to-expand
+  const s1=document.querySelector('[data-hero="1"]');
+  s1.addEventListener('scroll',()=>{
+    const p=Math.min(s1.scrollTop/480,1);
+    const f=s1.querySelector('[data-frame]'),bg=s1.querySelector('[data-bg]'),t1=s1.querySelector('[data-t1]'),t2=s1.querySelector('[data-t2]');
+    f.style.width=(280+p*900)+'px';f.style.height=(360+p*260)+'px';f.style.borderRadius=(16-p*14)+'px';
+    bg.style.opacity=String(1-p);t1.style.transform='translateX(-'+(p*42)+'vw)';t2.style.transform='translateX('+(p*42)+'vw)';
+  });
+
+  // 02 parallax image follows mouse
+  const s2=document.querySelector('[data-hero="2"]'),par=s2.querySelector('[data-par]');
+  s2.addEventListener('mousemove',e=>{const r=s2.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;par.style.transform=`scale(1.1) translate(${x*-18}px,${y*-18}px)`;});
+  s2.addEventListener('mouseleave',()=>par.style.transform='scale(1.1)');
+
+  // 04 tilt frames
+  document.querySelectorAll('[data-hero="4"] [data-tilt]').forEach(el=>{
+    el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(1000px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(30px) scale(1.04)`;el.style.zIndex=20;});
+    el.addEventListener('mouseleave',()=>{el.style.transform='';el.style.zIndex='';});
+  });
+</script>
+</body>
+</html>

@@ -4,10 +4,9 @@
 
 import { Hero } from "@/components/hero";
 import { Gallery } from "@/components/gallery";
+import { StudioServices } from "@/components/studio-services";
 
 const PLACEHOLDERS = [
-  { id: "studio", title: "Studio" },
-  { id: "leistungen", title: "Leistungen" },
   { id: "faq", title: "FAQ" },
   { id: "kontakt", title: "Kontakt" },
 ] as const;
@@ -17,6 +16,7 @@ export default function Home() {
     <main id="top">
       <Hero />
       <Gallery />
+      <StudioServices />
 
       {PLACEHOLDERS.map((s) => (
         <section

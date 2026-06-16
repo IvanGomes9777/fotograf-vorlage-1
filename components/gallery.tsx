@@ -58,7 +58,7 @@ export function Gallery() {
         wrapEl.style.transform = `scale(${1 + (OUT_SCALE - 1) * p})`;
         wrapEl.style.zIndex = "10";
         inner.style.transform = "none";
-        inner.style.opacity = String(1 - p * 0.65);
+        inner.style.opacity = "1"; // keep the other frames fully visible (no fade)
         inner.style.pointerEvents = p > 0.4 ? "none" : "auto";
       }
     });

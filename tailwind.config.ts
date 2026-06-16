@@ -21,9 +21,14 @@ const config: Config = {
           from: { opacity: "0", transform: "translateY(-12px)" },
           to: { opacity: "1", transform: "none" },
         },
+        "scroll-x": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "fade-down": "fade-down 0.6s ease both",
+        "scroll-x": "scroll-x 40s linear infinite",
       },
     },
   },

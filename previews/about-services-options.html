@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEDUTA · Über & Leistungen — 5 Design-Optionen</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config={theme:{extend:{
+    colors:{paper:'#FAFAF8',ink:'#15161A',accent:'#2E5BFF',muted:'#5a5d66',line:'rgba(0,0,0,0.08)'},
+    fontFamily:{sans:['Archivo','sans-serif'],mono:['"Space Mono"','monospace']}}}}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#EDEDEA;font-family:'Archivo',sans-serif;color:#15161A}
+  .stage{height:600px;position:relative;overflow:hidden;border-radius:16px;background:#FAFAF8}
+  .stage.scrolly{overflow-y:auto}
+  .stage::-webkit-scrollbar{width:8px}.stage::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18);border-radius:8px}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  .card{transition:transform .3s ease,box-shadow .4s ease}
+  .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+  @media (prefers-reduced-motion:reduce){.reveal,.card{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="max-w-[1100px] mx-auto px-6 pt-12 pb-6">
+  <div class="font-mono text-[11px] tracking-[0.24em] text-accent mb-3">VEDUTA STUDIO · SEKTION 04 — ÜBER & LEISTUNGEN/PREISE</div>
+  <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">5 Optionen zum Vergleichen</h1>
+  <p class="mt-3 max-w-2xl text-muted leading-relaxed">Kombiniert „Über das Studio" + „Leistungen & Preise" (3 Tarife) + ggf. Workflow. In den Boxen scrollen für Reveals; bei <strong>03</strong> läuft die Workflow-Story.</p>
+</header>
+
+<main class="max-w-[1100px] mx-auto px-6 pb-24 space-y-12">
+
+  <!-- 01 EDITORIAL TWO-COLUMN -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-2"><span class="font-mono text-accent text-sm">01</span><h2 class="text-xl font-bold tracking-tight">Editorial Two-Column</h2><span class="text-muted text-sm">— Porträt links sticky, Text rechts, Preise darunter</span></div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> Text gestaffelt rein. <strong>Micro:</strong> Porträt-Tilt, Karten heben bei Hover.</p>
+    <div class="stage scrolly" data-s="1">
+      <div class="grid md:grid-cols-2 gap-8 p-8">
+        <div class="md:sticky md:top-8 self-start">
+          <div data-tilt class="aspect-[4/5] rounded-xl overflow-hidden border border-line bg-cover bg-center transition-transform duration-300" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=65')"></div>
+        </div>
+        <div>
+          <div class="reveal font-mono text-[11px] tracking-[0.24em] text-accent mb-4">ÜBER DAS STUDIO</div>
+          <h3 class="reveal text-3xl font-extrabold tracking-tight leading-tight">Ein präziser Blick dafür, wie Gebäude wirklich leben.</h3>
+          <p class="reveal mt-4 text-muted leading-relaxed">VEDUTA ist ein Ein-Personen-Studio für Architekten, Bauträger und Interior-Marken. Struktur, fotografiert wie sie erlebt wird — Licht über einer Fassade, die Ruhe eines fertigen Raums.</p>
+          <div class="grid grid-cols-3 gap-3 mt-8">
+            <div class="card reveal rounded-xl border border-line bg-white p-4"><div class="font-mono text-[10px] text-muted">EDITORIAL</div><div class="mt-2 text-lg font-extrabold">€1.200<span class="text-xs text-muted font-normal">/Tag</span></div></div>
+            <div class="card reveal rounded-xl bg-ink text-white p-4"><div class="font-mono text-[10px] text-white/60">COMMERCIAL</div><div class="mt-2 text-lg font-extrabold">€2.400<span class="text-xs text-white/60 font-normal">/Proj.</span></div></div>
+            <div class="card reveal rounded-xl border border-line bg-white p-4"><div class="font-mono text-[10px] text-muted">ARCHITECTURE</div><div class="mt-2 text-lg font-extrabold">€3.600<span class="text-xs text-muted font-normal">/Proj.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 CENTERED MANIFESTO + TIERS -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-2"><span class="font-mono text-accent text-sm">02</span><h2 class="text-xl font-bold tracking-tight">Centered Manifesto + Preis-Tiers</h2><span class="text-muted text-sm">— großes Statement, dann 3 Tarife (Mitte hervorgehoben)</span></div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> Statement faded groß rein. <strong>Micro:</strong> mittlere Karte „AM HÄUFIGSTEN" mit Glow, Hover-Lift.</p>
+    <div class="stage scrolly" data-s="2">
+      <div class="p-8 text-center">
+        <div class="reveal font-mono text-[11px] tracking-[0.24em] text-accent mb-5">LEISTUNGEN &amp; INVESTITION</div>
+        <h3 class="reveal mx-auto max-w-xl text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">Klare Leistungen, klare Lizenzen.</h3>
+        <div class="grid md:grid-cols-3 gap-5 mt-10 text-left">
+          <div class="card reveal rounded-2xl border border-line bg-white p-6"><div class="font-mono text-[10px] tracking-wide text-muted">EDITORIAL</div><div class="mt-3 text-3xl font-extrabold">€1.200<span class="text-sm text-muted font-normal">/Tag</span></div><p class="mt-3 text-sm text-muted">Magazine &amp; Studio-Strecken.</p></div>
+          <div class="card reveal rounded-2xl bg-ink text-white p-6 relative shadow-[0_40px_80px_-36px_rgba(46,91,255,.6)]"><span class="absolute top-4 right-4 text-[9px] font-mono bg-accent px-2 py-1 rounded-full">AM HÄUFIGSTEN</span><div class="font-mono text-[10px] tracking-wide text-white/60">COMMERCIAL</div><div class="mt-3 text-3xl font-extrabold">€2.400<span class="text-sm text-white/60 font-normal">/Proj.</span></div><p class="mt-3 text-sm text-white/70">Multi-Raum-Kampagnen, art-directed.</p></div>
+          <div class="card reveal rounded-2xl border border-line bg-white p-6"><div class="font-mono text-[10px] tracking-wide text-muted">ARCHITECTURE</div><div class="mt-3 text-3xl font-extrabold">€3.600<span class="text-sm text-muted font-normal">/Proj.</span></div><p class="mt-3 text-sm text-muted">Volle Gebäudedokumentation.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 STICKY SCROLL STORY (Workflow) -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-2"><span class="font-mono text-accent text-sm">03</span><h2 class="text-xl font-bold tracking-tight">Sticky Scroll Story</h2><span class="text-muted text-sm">— Überschrift bleibt, Ablauf-Schritte erscheinen nacheinander</span></div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> Workflow-Schritte reveal-staffeln beim Scrollen. <strong>Micro:</strong> Fortschrittslinie, Nummern füllen sich.</p>
+    <div class="stage scrolly" data-s="3">
+      <div class="grid md:grid-cols-[0.8fr_1.2fr] gap-8 p-8">
+        <div class="md:sticky md:top-8 self-start">
+          <div class="font-mono text-[11px] tracking-[0.24em] text-accent mb-4">SO LÄUFT ES AB</div>
+          <h3 class="text-3xl font-extrabold tracking-tight leading-tight">Von der Idee zur lizenzierten Aufnahme.</h3>
+          <div class="mt-6 h-1 bg-line rounded-full overflow-hidden"><div data-bar class="h-full bg-accent" style="width:25%"></div></div>
+        </div>
+        <div class="space-y-5">
+          <div class="step reveal rounded-xl border border-line bg-white p-5"><div class="font-mono text-accent text-sm">01</div><div class="mt-2 font-bold text-lg">Briefing &amp; Umfang</div><p class="text-sm text-muted mt-1">Räume, Stimmung, Lizenz und Zeitplan abstimmen.</p></div>
+          <div class="step reveal rounded-xl border border-line bg-white p-5"><div class="font-mono text-muted text-sm">02</div><div class="mt-2 font-bold text-lg">Shooting</div><p class="text-sm text-muted mt-1">Vor Ort, natürliches + ergänzendes Licht, getethert.</p></div>
+          <div class="step reveal rounded-xl border border-line bg-white p-5"><div class="font-mono text-muted text-sm">03</div><div class="mt-2 font-bold text-lg">Auswahl &amp; Bearbeitung</div><p class="text-sm text-muted mt-1">Kuratiert, formtreu, zeitlos — nie überzogen.</p></div>
+          <div class="step reveal rounded-xl border border-line bg-white p-5"><div class="font-mono text-muted text-sm">04</div><div class="mt-2 font-bold text-lg">Lieferung &amp; Lizenz</div><p class="text-sm text-muted mt-1">Web- + Print-Dateien, klare Nutzungsrechte.</p></div>
+          <div style="height:80px"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 BENTO GRID -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-2"><span class="font-mono text-accent text-sm">04</span><h2 class="text-xl font-bold tracking-tight">Bento Grid</h2><span class="text-muted text-sm">— Über, Kennzahlen, Bild &amp; Leistungen als Kachel-Mix</span></div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> Kacheln reveal-staffeln. <strong>Micro:</strong> Hover-Scale, Bildkachel Parallax.</p>
+    <div class="stage scrolly" data-s="4">
+      <div class="grid grid-cols-4 grid-rows-3 gap-4 p-8 h-[600px]">
+        <div class="card reveal col-span-2 row-span-2 rounded-2xl border border-line bg-white p-6 flex flex-col justify-between"><div class="font-mono text-[11px] tracking-[0.24em] text-accent">ÜBER DAS STUDIO</div><h3 class="text-2xl font-extrabold tracking-tight leading-tight">Präzise. Zeitlos. Klar lizenziert.</h3></div>
+        <div class="card reveal col-span-2 rounded-2xl overflow-hidden border border-line bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=60')"></div>
+        <div class="card reveal rounded-2xl bg-ink text-white p-5 flex flex-col justify-center"><div class="text-2xl font-extrabold">120+</div><div class="font-mono text-[10px] text-white/60 mt-1">PROJEKTE</div></div>
+        <div class="card reveal rounded-2xl border border-line bg-white p-5 flex flex-col justify-center"><div class="text-2xl font-extrabold">9 J.</div><div class="font-mono text-[10px] text-muted mt-1">IM STUDIO</div></div>
+        <div class="card reveal col-span-2 rounded-2xl border border-line bg-white p-5 flex items-center justify-between"><div><div class="font-mono text-[10px] text-muted">AB</div><div class="text-xl font-extrabold">€1.200 – €3.600</div></div><a class="text-accent text-sm font-semibold border-b-2 border-accent pb-0.5">Leistungen →</a></div>
+        <div class="card reveal col-span-2 rounded-2xl overflow-hidden border border-line bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=700&q=60')"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 SPLIT DARK PRICING BAND -->
+  <section class="reveal">
+    <div class="flex items-baseline gap-3 mb-2"><span class="font-mono text-accent text-sm">05</span><h2 class="text-xl font-bold tracking-tight">Dark Pricing Band</h2><span class="text-muted text-sm">— Über hell, dann dunkles Preis-Band mit Glow</span></div>
+    <p class="text-sm text-muted mb-3"><strong>Animation:</strong> heller Über-Teil reveal, dunkles Band fährt rein. <strong>Micro:</strong> Glow-Puls auf „beliebt", Hover.</p>
+    <div class="stage scrolly" data-s="5">
+      <div class="p-8">
+        <div class="reveal font-mono text-[11px] tracking-[0.24em] text-accent mb-3">ÜBER DAS STUDIO</div>
+        <h3 class="reveal text-3xl font-extrabold tracking-tight max-w-lg leading-tight">Räume, dokumentiert wie sie erlebt werden.</h3>
+        <p class="reveal mt-4 text-muted max-w-md">Ein-Personen-Studio in Zürich für Architektur &amp; Interiors.</p>
+      </div>
+      <div class="reveal bg-ink text-white p-8 rounded-t-2xl">
+        <div class="font-mono text-[11px] tracking-[0.24em] text-accent mb-6">LEISTUNGEN &amp; INVESTITION</div>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="card rounded-xl border border-white/10 p-5"><div class="font-mono text-[10px] text-white/50">EDITORIAL</div><div class="mt-2 text-2xl font-extrabold">€1.200</div></div>
+          <div class="card rounded-xl p-5 relative" style="background:linear-gradient(180deg,#1b1d33,#15161A);box-shadow:0 0 0 1px #2E5BFF, 0 30px 60px -20px rgba(46,91,255,.6)"><span class="absolute top-3 right-3 text-[9px] font-mono bg-accent px-2 py-0.5 rounded-full animate-pulse">BELIEBT</span><div class="font-mono text-[10px] text-white/60">COMMERCIAL</div><div class="mt-2 text-2xl font-extrabold">€2.400</div></div>
+          <div class="card rounded-xl border border-white/10 p-5"><div class="font-mono text-[10px] text-white/50">ARCHITECTURE</div><div class="mt-2 text-2xl font-extrabold">€3.600</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="max-w-[1100px] mx-auto px-6 pb-16 text-sm text-muted"><div class="border-t border-line pt-6">Nach deiner Wahl baue ich die Sektion in <strong>Next.js + Tailwind</strong> auf dem Feature-Branch und öffne einen <strong>Pull Request → main</strong>.</div></footer>
+
+<script>
+  document.querySelectorAll('section.reveal').forEach(s=>{const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){s.querySelectorAll('.reveal,.step,.card').forEach((n,i)=>setTimeout(()=>n.classList.add('in'),80*i));}}),{threshold:.18});so.observe(s);});
+  document.querySelectorAll('.stage.scrolly [data-s], .stage.scrolly').forEach(()=>{});
+  // generic in-view reveal for nested when scrolling within stages
+  document.querySelectorAll('.stage').forEach(st=>{const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{root:st,threshold:.2});st.querySelectorAll('.reveal,.step,.card').forEach(n=>o.observe(n));});
+  // 01 portrait tilt
+  const t=document.querySelector('[data-s="1"] [data-tilt]');
+  if(t){const p=t.parentElement;p.addEventListener('mousemove',e=>{const r=p.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg) scale(1.03)`});p.addEventListener('mouseleave',()=>t.style.transform='');}
+  // 03 progress bar
+  const s3=document.querySelector('[data-s="3"]'),bar=s3&&s3.querySelector('[data-bar]');
+  if(s3&&bar)s3.addEventListener('scroll',()=>{bar.style.width=(25+Math.min(s3.scrollTop/300,1)*75)+'%'});
+  // 04 parallax image tiles
+  const s4=document.querySelector('[data-s="4"]');
+  if(s4)s4.addEventListener('scroll',()=>{const p=s4.scrollTop;s4.querySelectorAll('[style*="background-image"]').forEach((el,i)=>{el.style.backgroundPositionY=(p*0.04*(i+1))+'px'});});
+</script>
+</body>
+</html>

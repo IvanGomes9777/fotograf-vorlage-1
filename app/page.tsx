@@ -5,6 +5,7 @@
 import { Hero } from "@/components/hero";
 import { Gallery } from "@/components/gallery";
 import { StudioServices } from "@/components/studio-services";
+import { InstagramStrip } from "@/components/instagram";
 
 const PLACEHOLDERS = [
   { id: "faq", title: "FAQ" },
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <Gallery />
       <StudioServices />
+      <InstagramStrip />
 
       {PLACEHOLDERS.map((s) => (
         <section

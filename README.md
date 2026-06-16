@@ -31,7 +31,8 @@ Sektionen:
 4. **Über das Studio** — mit 3D-Tilt-Porträt.
 5. **Leistungen & Investition** — drei Preis-Karten.
 6. **Workflow** — vierstufiger Ablauf.
-7. **Instagram-Strip** — 6 Kacheln mit Tilt-Hover.
+7. **Instagram-Strip** — interaktive Bento-Galerie (draggable, Lightbox-Modal mit Dock)
+   plus „Auf Instagram folgen"-Button.
 8. **FAQ** — Akkordeon.
 9. **Kontakt** — validiertes Formular mit Bestätigung + Footer.
 

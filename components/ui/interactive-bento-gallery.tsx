@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react';
 
 
 // MediaItemType defines the structure of a media item
@@ -208,18 +207,6 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                         </AnimatePresence>
                     </div>
                 </div>
-
-                {/* Close Button */}
-                <motion.button
-                    className="absolute top-2 sm:top-2.5 md:top-3 right-2 sm:right-2.5 md:right-3
-                              p-2 rounded-full bg-gray-200/80 text-gray-700 hover:bg-gray-300/80
-                              text-xs sm:text-sm backdrop-blur-sm "
-                    onClick={onClose}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                >
-                    <X className='w-3 h-3' />
-                </motion.button>
 
             </motion.div>
 

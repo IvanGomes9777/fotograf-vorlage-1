@@ -13,10 +13,9 @@ const DEFAULT_IMAGES = [
   "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=75",
   "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=75",
   "https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&w=1200&q=75",
+  "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=1200&q=75",
+  "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&w=1200&q=75",
 ];
-
-const MASK =
-  "linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%)";
 
 export function ImageAutoSlider({
   images = DEFAULT_IMAGES,
@@ -45,19 +44,16 @@ export function ImageAutoSlider({
 
   return (
     <div className="relative w-full overflow-hidden bg-ink py-10">
-      <div className="relative z-10 flex w-full items-center justify-center">
-        <div
-          className="w-full max-w-6xl"
-          style={{ WebkitMaskImage: MASK, maskImage: MASK }}
-        >
-          <div className="flex w-max gap-6 animate-scroll-x hover:[animation-play-state:paused] motion-reduce:animate-none">
+      <div className="relative z-10 w-full">
+        <div className="w-full">
+          <div className="flex w-max gap-4 animate-scroll-x hover:[animation-play-state:paused] motion-reduce:animate-none">
             {duplicated.map((src, index) => (
               <button
                 key={index}
                 type="button"
                 onClick={() => setActive(src)}
                 aria-label={`Bild ${(index % images.length) + 1} im Vollbild öffnen`}
-                className="group h-48 w-48 flex-shrink-0 overflow-hidden rounded-xl shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:h-64 md:w-64 lg:h-80 lg:w-80"
+                className="group h-40 w-40 flex-shrink-0 overflow-hidden rounded-xl shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent md:h-48 md:w-48 lg:h-56 lg:w-56"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

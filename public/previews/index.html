@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEDUTA Studio · Design-Previews</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config={theme:{extend:{
+    colors:{paper:'#FAFAF8',ink:'#15161A',accent:'#2E5BFF',muted:'#5a5d66',line:'rgba(0,0,0,0.08)'},
+    fontFamily:{sans:['Archivo','sans-serif'],mono:['"Space Mono"','monospace']}}}}
+</script>
+<style>body{font-family:'Archivo',sans-serif}</style>
+</head>
+<body class="bg-paper text-ink min-h-screen">
+  <header class="max-w-[1100px] mx-auto px-6 pt-16 pb-8">
+    <div class="font-mono text-[11px] tracking-[0.24em] text-accent mb-3">VEDUTA STUDIO · DESIGN-PREVIEWS</div>
+    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Sektions-Optionen zum Vergleichen</h1>
+    <p class="mt-4 max-w-2xl text-muted leading-relaxed">Jede Datei zeigt mehrere Design-Optionen für eine Sektion. Aktuell zur Wahl: <strong>Sektion 04 — Über &amp; Leistungen/Preise</strong>.</p>
+  </header>
+  <main class="max-w-[1100px] mx-auto px-6 pb-24 grid sm:grid-cols-2 gap-5">
+    <a href="./about-services-options.html" class="group rounded-2xl border-2 border-accent bg-white p-6 transition hover:-translate-y-1 hover:shadow-2xl">
+      <div class="font-mono text-[10px] tracking-[0.2em] text-accent">SEKTION 04 · ZUR WAHL</div>
+      <h2 class="mt-2 text-xl font-extrabold tracking-tight">Über &amp; Leistungen/Preise</h2>
+      <p class="mt-2 text-sm text-muted">5 Optionen: Editorial Two-Column, Centered Manifesto, Sticky Scroll Story, Bento Grid, Dark Pricing Band.</p>
+      <span class="mt-4 inline-block text-accent font-semibold border-b-2 border-accent pb-0.5">Optionen ansehen →</span>
+    </a>
+    <a href="./hero-options.html" class="group rounded-2xl border border-line bg-white p-6 transition hover:-translate-y-1 hover:shadow-2xl">
+      <div class="font-mono text-[10px] tracking-[0.2em] text-muted">SEKTION 02 · GEBAUT</div>
+      <h2 class="mt-2 text-xl font-extrabold tracking-tight">Hero</h2>
+      <p class="mt-2 text-sm text-muted">Optionen für den Hero-Bereich (umgesetzt: Scroll-to-Expand).</p>
+      <span class="mt-4 inline-block text-muted font-semibold border-b-2 border-line pb-0.5">Optionen ansehen →</span>
+    </a>
+    <a href="./gallery-options.html" class="group rounded-2xl border border-line bg-white p-6 transition hover:-translate-y-1 hover:shadow-2xl">
+      <div class="font-mono text-[10px] tracking-[0.2em] text-muted">SEKTION 03 · GEBAUT</div>
+      <h2 class="mt-2 text-xl font-extrabold tracking-tight">Galerie</h2>
+      <p class="mt-2 text-sm text-muted">Optionen für die Galerie (umgesetzt: Auto-Slider + Lightbox).</p>
+      <span class="mt-4 inline-block text-muted font-semibold border-b-2 border-line pb-0.5">Optionen ansehen →</span>
+    </a>
+    <a href="./navbar-options.html" class="group rounded-2xl border border-line bg-white p-6 transition hover:-translate-y-1 hover:shadow-2xl">
+      <div class="font-mono text-[10px] tracking-[0.2em] text-muted">SEKTION 01 · GEBAUT</div>
+      <h2 class="mt-2 text-xl font-extrabold tracking-tight">Navbar</h2>
+      <p class="mt-2 text-sm text-muted">Optionen für die Navigation (umgesetzt).</p>
+      <span class="mt-4 inline-block text-muted font-semibold border-b-2 border-line pb-0.5">Optionen ansehen →</span>
+    </a>
+  </main>
+</body>
+</html>

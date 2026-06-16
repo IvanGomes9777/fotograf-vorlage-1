@@ -31,9 +31,14 @@ Sektionen:
 4. **Über das Studio** — mit 3D-Tilt-Porträt.
 5. **Leistungen & Investition** — drei Preis-Karten.
 6. **Workflow** — vierstufiger Ablauf.
-7. **Instagram-Strip** — 6 Kacheln mit Tilt-Hover.
-8. **FAQ** — Akkordeon.
-9. **Kontakt** — validiertes Formular mit Bestätigung + Footer.
+7. **Instagram-Strip** — interaktive Bento-Galerie (draggable, Lightbox-Modal mit Dock)
+   plus „Auf Instagram folgen"-Button.
+8. **Kontakt** — validiertes Formular mit Bestätigung, Kontaktkarten,
+   Google-Maps-Embed (Standort) + Footer mit Rechts-Links.
+
+Rechtliche Platzhalter-Seiten (Standort: Berlin/Deutschland): `/impressum`,
+`/datenschutz` (inkl. `#cookies`), `/agb`. Inhalte sind Vorlagentexte — vor
+Veröffentlichung rechtlich prüfen und anpassen.
 
 ## Platzhalter ersetzen
 

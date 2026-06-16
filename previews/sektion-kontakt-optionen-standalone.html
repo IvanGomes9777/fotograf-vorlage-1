@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEDUTA · Kontakt — Optionen (eigenständig)</title>
+<style>
+  :root{
+    --paper:#FAFAF8; --ink:#15161A; --accent:#2E5BFF; --muted:#5a5d66;
+    --line:rgba(0,0,0,.10); --bg:#EDEDEA; --white:#fff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header{padding:48px 0 24px}
+  .kicker{font-size:11px;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+  h1{font-size:34px;line-height:1.1;margin:0;font-weight:800;letter-spacing:-.02em}
+  .sub{margin-top:12px;color:var(--muted);max-width:660px}
+  .opt{background:var(--paper);border:1px solid var(--line);border-radius:18px;
+    padding:24px;margin:22px 0;box-shadow:0 12px 30px -22px rgba(0,0,0,.5)}
+  .opt-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .opt-num{color:var(--accent);font-weight:700;font-size:14px}
+  .opt-title{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:0}
+  .opt-tag{color:var(--muted);font-size:14px}
+  .opt-note{font-size:13px;color:var(--muted);margin:0 0 18px}
+  .opt-note b{color:var(--ink)}
+  .demo{border:1px dashed var(--line);border-radius:14px;padding:22px;background:#fff;overflow:hidden}
+  .lead-kick{font-size:11px;letter-spacing:.22em;color:var(--accent)}
+  .h2{font-size:26px;font-weight:800;letter-spacing:-.01em;margin:8px 0 0;line-height:1.1}
+  .lead{color:var(--muted);margin:10px 0 0;font-size:14px}
+  /* form bits */
+  .field{margin-top:12px}
+  .label{font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+  .input{margin-top:5px;width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 12px;
+    background:#fff;font-size:14px;color:var(--ink)}
+  .input.area{min-height:74px;resize:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;
+    border:none;font-size:14px;font-weight:600;padding:11px 20px;border-radius:9px;margin-top:14px;cursor:pointer}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  /* layouts */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .info .item{margin-top:14px}
+  .info .item .k{font-size:10px;letter-spacing:.14em;color:var(--accent)}
+  .info .item .v{font-size:15px;font-weight:600;margin-top:2px}
+  .center{max-width:460px;margin:0 auto;text-align:center}
+  .center .field{text-align:left}
+  .statement{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}
+  .statement .big{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.08}
+  .statement .big span{color:var(--accent)}
+  .dark{background:var(--ink);border-radius:14px;padding:24px;color:#fff}
+  .dark .label{color:rgba(255,255,255,.55)}
+  .dark .input{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#fff}
+  .dark .lead{color:rgba(255,255,255,.7)}
+  .band{margin-top:20px;border-top:1px solid var(--line);padding-top:16px;display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+  .band .brand{font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  @media(max-width:640px){.split,.statement{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker mono">VEDUTA STUDIO · SEKTION — KONTAKT</div>
+    <h1>Kontakt — Design-Optionen</h1>
+    <p class="sub">Letzte Sektion: Kontaktformular + Footer. Fünf Layouts. Sag mir die Nummer (z.&nbsp;B. „Option 1") — daraus baue ich die finale React-Komponente im Seitenstil mit <b>Validierung + Bestätigungs-State</b> und Footer.</p>
+  </header>
+
+  <!-- OPT 1 -->
+  <section class="opt">
+    <div class="opt-head"><span class="opt-num mono">01</span><h2 class="opt-title">Split — Formular + Kontaktdaten</h2><span class="opt-tag">— klassisch, klar</span></div>
+    <p class="opt-note"><b>Formular links, Kontaktinfos rechts</b> (E-Mail, Telefon, Standort, Social). Sehr gängig, hohe Conversion, leicht scannbar.</p>
+    <div class="demo">
+      <div class="split">
+        <div>
+          <span class="lead-kick mono">PROJEKT ANFRAGEN</span>
+          <div class="h2">Erzählen Sie von Ihrem Raum.</div>
+          <div class="row2">
+            <div class="field"><div class="label">Name</div><div class="input">Max Mustermann</div></div>
+            <div class="field"><div class="label">E-Mail</div><div class="input">max@firma.ch</div></div>
+          </div>
+          <div class="field"><div class="label">Nachricht</div><div class="input area">Wir planen eine Strecke für …</div></div>
+          <button class="btn">Anfrage senden →</button>
+        </div>
+        <div class="info">
+          <div class="lead">Antwort innerhalb von 48&nbsp;Stunden — mit konkretem Angebot.</div>
+          <div class="item"><div class="k mono">E-MAIL</div><div class="v">studio@veduta.ch</div></div>
+          <div class="item"><div class="k mono">TELEFON</div><div class="v">+41 44 000 00 00</div></div>
+          <div class="item"><div class="k mono">STANDORT</div><div class="v">Zürich, CH</div></div>
+          <div class="item"><div class="k mono">SOCIAL</div><div class="v">@veduta.studio</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPT 2 -->
+  <section class="opt">
+    <div class="opt-head"><span class="opt-num mono">02</span><h2 class="opt-title">Zentriert & minimal</h2><span class="opt-tag">— ruhig, fokussiert</span></div>
+    <p class="opt-note"><b>Ein schmales, zentriertes Formular.</b> Maximaler Fokus auf den einen Call-to-Action, viel Weißraum — passt zur Editorial-Ästhetik.</p>
+    <div class="demo">
+      <div class="center">
+        <span class="lead-kick mono">KONTAKT</span>
+        <div class="h2">Lassen Sie uns sprechen.</div>
+        <p class="lead">Kurz beschreiben, worum es geht — der Rest klärt sich im Gespräch.</p>
+        <div class="field"><div class="label">Name</div><div class="input">Max Mustermann</div></div>
+        <div class="field"><div class="label">E-Mail</div><div class="input">max@firma.ch</div></div>
+        <div class="field"><div class="label">Nachricht</div><div class="input area">…</div></div>
+        <button class="btn">Anfrage senden →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPT 3 -->
+  <section class="opt">
+    <div class="opt-head"><span class="opt-num mono">03</span><h2 class="opt-title">Statement + Formular</h2><span class="opt-tag">— editorial, groß</span></div>
+    <p class="opt-note"><b>Große Aussage links</b>, kompaktes Formular rechts. Wirkt selbstbewusst und markant, gut als Abschluss-Sektion vor dem Footer.</p>
+    <div class="demo">
+      <div class="statement">
+        <div>
+          <span class="lead-kick mono">KONTAKT</span>
+          <div class="big">Ein Projekt im Kopf?<br><span>Lassen Sie es uns festhalten.</span></div>
+          <p class="lead">Zürich · weltweit auf Anfrage — Antwort in 48&nbsp;Stunden.</p>
+        </div>
+        <div>
+          <div class="field"><div class="label">Name</div><div class="input">Max Mustermann</div></div>
+          <div class="field"><div class="label">E-Mail</div><div class="input">max@firma.ch</div></div>
+          <div class="field"><div class="label">Nachricht</div><div class="input area">…</div></div>
+          <button class="btn">Anfrage senden →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPT 4 -->
+  <section class="opt">
+    <div class="opt-head"><span class="opt-num mono">04</span><h2 class="opt-title">Dunkle Karte</h2><span class="opt-tag">— premium, kontrastreich</span></div>
+    <p class="opt-note"><b>Formular auf dunkler Karte</b> (Charcoal), passt zur „Featured"-Preiskarte & CTA-Band aus Sektion 04. Setzt einen kräftigen visuellen Schlusspunkt.</p>
+    <div class="demo">
+      <div class="dark">
+        <span class="lead-kick mono">PROJEKT ANFRAGEN</span>
+        <div class="h2" style="color:#fff">Erzählen Sie von Ihrem Raum.</div>
+        <p class="lead">Antwort innerhalb von 48&nbsp;Stunden — mit konkretem Angebot.</p>
+        <div class="row2">
+          <div class="field"><div class="label">Name</div><div class="input">Max Mustermann</div></div>
+          <div class="field"><div class="label">E-Mail</div><div class="input">max@firma.ch</div></div>
+        </div>
+        <div class="field"><div class="label">Nachricht</div><div class="input area">…</div></div>
+        <button class="btn">Anfrage senden →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPT 5 -->
+  <section class="opt">
+    <div class="opt-head"><span class="opt-num mono">05</span><h2 class="opt-title">Formular + Footer-Band</h2><span class="opt-tag">— komplett, all-in-one</span></div>
+    <p class="opt-note"><b>Zentriertes Formular</b> und direkt darunter das <b>Footer-Band</b> (Marke, Links, Copyright). Schließt die Seite in einer Sektion ab — kein separater Footer nötig.</p>
+    <div class="demo">
+      <div class="center">
+        <span class="lead-kick mono">KONTAKT</span>
+        <div class="h2">Lassen Sie uns sprechen.</div>
+        <div class="field"><div class="label">E-Mail</div><div class="input">max@firma.ch</div></div>
+        <div class="field"><div class="label">Nachricht</div><div class="input area">…</div></div>
+        <button class="btn">Anfrage senden →</button>
+      </div>
+      <div class="band">
+        <span class="brand">VEDUTA<span style="color:var(--accent)">.</span></span>
+        <span>Projekte · Studio · Leistungen · Instagram</span>
+        <span>© 2026 VEDUTA Studio · Zürich</span>
+      </div>
+    </div>
+  </section>
+
+  <p class="sub" style="padding-bottom:48px">Welche Option soll ich umsetzen? Mischen geht auch (z.&nbsp;B. „Option 1, aber dunkel wie Option 4"). Hinweis: Die Navigation verlinkt aktuell noch auf <code>#faq</code> — da wir FAQ überspringen, entferne ich diesen Link bei der Gelegenheit.</p>
+</div>
+</body>
+</html>

@@ -188,7 +188,7 @@ export function StudioServices() {
   return (
     <>
       {/* ───────────────── ÜBER DAS STUDIO — Editorial Two-Column ───────────────── */}
-      <section id="studio" className="border-t border-line bg-paper">
+      <section id="studio" className="border-t border-line">
         <div
           ref={about.ref}
           className="mx-auto grid max-w-[1280px] gap-12 px-6 py-20 md:grid-cols-2 md:gap-16 md:px-10 md:py-28"
@@ -209,7 +209,7 @@ export function StudioServices() {
                 </div>
                 <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-5">
                   <span className="font-mono text-[11px] tracking-[0.22em] text-white/90">
-                    VEDUTA · ZÜRICH
+                    VEDUTA · BERLIN
                   </span>
                   <span className="font-mono text-[11px] tracking-[0.22em] text-white/70">
                     EST. 2017
@@ -281,7 +281,7 @@ export function StudioServices() {
       </section>
 
       {/* ───────────────── LEISTUNGEN & INVESTITION ───────────────── */}
-      <section id="leistungen" className="border-t border-line bg-paper">
+      <section id="leistungen" className="border-t border-line">
         <div className="mx-auto max-w-[1280px] px-6 py-20 md:px-10 md:py-28">
           <div ref={intro.ref} className="max-w-2xl">
             <Reveal show={intro.inView}>

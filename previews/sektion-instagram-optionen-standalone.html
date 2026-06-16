@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VEDUTA · Instagram-Strip — Optionen (eigenständig)</title>
+<style>
+  :root{
+    --paper:#FAFAF8; --ink:#15161A; --accent:#2E5BFF; --muted:#5a5d66;
+    --line:rgba(0,0,0,.10); --bg:#EDEDEA; --white:#fff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header{padding:48px 0 24px}
+  .kicker{font-size:11px;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+  h1{font-size:34px;line-height:1.1;margin:0;font-weight:800;letter-spacing:-.02em}
+  .sub{margin-top:12px;color:var(--muted);max-width:660px}
+  .opt{background:var(--paper);border:1px solid var(--line);border-radius:18px;
+    padding:24px;margin:22px 0;box-shadow:0 12px 30px -22px rgba(0,0,0,.5)}
+  .opt-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .opt-num{color:var(--accent);font-weight:700;font-size:14px}
+  .opt-title{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:0}
+  .opt-tag{color:var(--muted);font-size:14px}
+  .opt-note{font-size:13px;color:var(--muted);margin:0 0 18px}
+  .opt-note b{color:var(--ink)}
+  .demo{border:1px dashed var(--line);border-radius:14px;padding:18px;background:#fff;overflow:hidden}
+  .demo.bleed{padding:18px 0}
+  .lead-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+  .lead-kick{font-size:11px;letter-spacing:.22em;color:var(--accent)}
+  .lead-h{font-size:22px;font-weight:800;letter-spacing:-.01em;margin:0}
+  .lead-handle{margin-left:auto;font-size:12px;color:var(--muted)}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+
+  /* shared tile */
+  .tile{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);
+    background:#d7d3cc;transition:transform .35s ease, box-shadow .35s ease}
+  .tile .ov{position:absolute;inset:0;display:flex;align-items:flex-end;padding:10px;
+    background:linear-gradient(to top,rgba(0,0,0,.45),transparent 55%);
+    opacity:0;transition:opacity .3s ease}
+  .tile:hover .ov{opacity:1}
+  .tile .ig{color:#fff;font-size:11px;letter-spacing:.04em;display:flex;align-items:center;gap:6px}
+  .tile .ig svg{width:14px;height:14px;fill:#fff}
+
+  /* OPT 1 — 6-up tilt row */
+  .row6{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  .row6 .tile{aspect-ratio:1}
+  .row6 .tile:hover{transform:translateY(-6px) rotate(-1.5deg);box-shadow:0 18px 30px -18px rgba(0,0,0,.6)}
+  @media(max-width:640px){.row6{grid-template-columns:repeat(3,1fr)}}
+
+  /* OPT 2 — full-bleed marquee */
+  .marquee{display:flex;gap:12px;width:max-content;animation:scroll 26s linear infinite}
+  .marquee:hover{animation-play-state:paused}
+  .marquee .tile{width:170px;aspect-ratio:1;flex:0 0 auto}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* OPT 3 — mosaic */
+  .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:90px;gap:10px}
+  .mosaic .tile:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .mosaic .tile:nth-child(6){grid-column:span 2}
+  .mosaic .tile:hover{transform:scale(1.02)}
+  @media(max-width:640px){.mosaic{grid-template-columns:repeat(2,1fr)}.mosaic .tile:nth-child(1){grid-column:span 2}}
+
+  /* OPT 4 — split handle + grid */
+  .split{display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:center}
+  .split .panel{padding:6px 4px}
+  .split .panel .big{font-size:26px;font-weight:800;letter-spacing:-.01em;margin:8px 0 6px}
+  .split .panel p{color:var(--muted);font-size:14px;margin:0 0 16px}
+  .split .grid23{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .split .grid23 .tile{aspect-ratio:1}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+    font-size:13px;font-weight:600;padding:10px 18px;border-radius:9px}
+  @media(max-width:640px){.split{grid-template-columns:1fr}.split .grid23{grid-template-columns:repeat(3,1fr)}}
+
+  /* OPT 5 — overlapping polaroids */
+  .stack{display:flex;justify-content:center;align-items:center;gap:0;padding:24px 0;min-height:200px}
+  .stack .tile{width:150px;aspect-ratio:4/5;border:5px solid #fff;border-radius:6px;
+    box-shadow:0 14px 28px -16px rgba(0,0,0,.55)}
+  .stack .tile:nth-child(1){transform:rotate(-7deg);margin-right:-26px;z-index:1}
+  .stack .tile:nth-child(2){transform:rotate(3deg);margin-right:-26px;z-index:2}
+  .stack .tile:nth-child(3){transform:rotate(-2deg);z-index:4;width:168px}
+  .stack .tile:nth-child(4){transform:rotate(5deg);margin-left:-26px;z-index:2}
+  .stack .tile:nth-child(5){transform:rotate(-5deg);margin-left:-26px;z-index:1}
+  .stack .tile:hover{transform:rotate(0) scale(1.06);z-index:5}
+  @media(max-width:640px){.stack .tile:nth-child(4),.stack .tile:nth-child(5){display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker mono">VEDUTA STUDIO · SEKTION — INSTAGRAM-STRIP</div>
+    <h1>Instagram-Strip — Design-Optionen</h1>
+    <p class="sub">Eine Social-Proof-Sektion mit Verlinkung zum Instagram-Profil. Fünf Layouts mit echten Beispielbildern. Sag mir die Nummer (z.&nbsp;B. „Option 1") — daraus baue ich die finale React-Komponente im Stil der Seite (Tokens, Mono-Kicker, Reveal-Animationen, <code>next/image</code>).</p>
+  </header>
+
+  <!-- OPT 1 -->
+  <section class="opt">
+    <div class="opt-head"><span class="opt-num mono">01</span><h2 class="opt-title">6-Up Tilt-Row</h2><span class="opt-tag">— klassisch, ruhig</span></div>
+    <p class="opt-note"><b>Eine Reihe à 6 quadratische Kacheln</b>, leichter Tilt + Anheben beim Hover (wie im README angedacht). Aufgeräumt, passt gut zwischen Leistungen und FAQ.</p>
+    <div class="demo">
+      <div class="lead-row"><span class="lead-kick mono">FOLGEN SIE DEM STUDIO</span><h3 class="lead-h">@veduta.studio</h3><span class="lead-handle mono">INSTAGRAM →</span></div>
+      <div class="row6">
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=400&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=400&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=400&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=400&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPT 2 -->
+  <section class="opt">
+    <div class="opt-head"><span class="opt-num mono">02</span><h2 class="opt-title">Full-Bleed Marquee</h2><span class="opt-tag">— lebendig, edge-to-edge</span></div>
+    <p class="opt-note"><b>Endlos laufendes Band</b> randlos über die volle Breite, pausiert beim Hover. Greift die Bewegung der Galerie-Sektion auf — verbindet beide visuell.</p>
+    <div class="demo bleed">
+      <div class="lead-row" style="padding:0 18px"><span class="lead-kick mono">FOLGEN SIE DEM STUDIO</span><h3 class="lead-h">@veduta.studio</h3></div>
+      <div class="marquee">
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=300&q=60"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=300&q=60"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=300&q=60"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=300&q=60"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=300&q=60"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=300&q=60"></a>
+        <!-- duplicate for seamless loop -->
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=300&q=60"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=300&q=60"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=300&q=60"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=300&q=60"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=300&q=60"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=300&q=60"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPT 3 -->
+  <section class="opt">
+    <div class="opt-head"><span class="opt-num mono">03</span><h2 class="opt-title">Mosaik-Grid</h2><span class="opt-tag">— redaktionell, dynamisch</span></div>
+    <p class="opt-note"><b>Asymmetrisches Raster</b> mit einer großen Hero-Kachel + kleineren Tiles. Wirkt kuratiert wie ein echter Feed, ohne Bewegung.</p>
+    <div class="demo">
+      <div class="lead-row"><span class="lead-kick mono">FOLGEN SIE DEM STUDIO</span><h3 class="lead-h">@veduta.studio</h3><span class="lead-handle mono">INSTAGRAM →</span></div>
+      <div class="mosaic">
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=400&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=400&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=400&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=70"><span class="ov"><span class="ig mono">@veduta</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPT 4 -->
+  <section class="opt">
+    <div class="opt-head"><span class="opt-num mono">04</span><h2 class="opt-title">Split — Handle + Grid</h2><span class="opt-tag">— mit Call-to-Action</span></div>
+    <p class="opt-note"><b>Linke Spalte</b> mit Profilname, Kurztext und Follow-Button — <b>rechts</b> ein 2×3-Raster. Stärkster CTA, klar als „Folgen"-Aufruf lesbar.</p>
+    <div class="demo">
+      <div class="split">
+        <div class="panel">
+          <span class="lead-kick mono">AUF INSTAGRAM</span>
+          <div class="big">@veduta.studio</div>
+          <p>Aktuelle Projekte, Behind-the-Scenes und Lichtstudien — täglich aus dem Studio.</p>
+          <a class="btn" href="#">Profil folgen</a>
+        </div>
+        <div class="grid23">
+          <a class="tile"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=70"><span class="ov"></span></a>
+          <a class="tile"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=400&q=70"><span class="ov"></span></a>
+          <a class="tile"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=70"><span class="ov"></span></a>
+          <a class="tile"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=400&q=70"><span class="ov"></span></a>
+          <a class="tile"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=400&q=70"><span class="ov"></span></a>
+          <a class="tile"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=400&q=70"><span class="ov"></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPT 5 -->
+  <section class="opt">
+    <div class="opt-head"><span class="opt-num mono">05</span><h2 class="opt-title">Polaroid-Stack</h2><span class="opt-tag">— verspielt, haptisch</span></div>
+    <p class="opt-note"><b>Überlappende, leicht gedrehte Bilder</b> mit weißem Rand; beim Hover richtet sich das Bild auf und kommt nach vorn. Persönlicher, weniger „corporate".</p>
+    <div class="demo">
+      <div class="lead-row" style="justify-content:center;text-align:center"><span class="lead-kick mono" style="display:block;width:100%;text-align:center">FOLGEN SIE DEM STUDIO — @VEDUTA.STUDIO</span></div>
+      <div class="stack">
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=70"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=400&q=70"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=70"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=400&q=70"></a>
+        <a class="tile"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=400&q=70"></a>
+      </div>
+    </div>
+  </section>
+
+  <p class="sub" style="padding-bottom:48px">Welche Option soll ich umsetzen? Du kannst auch Details mischen (z.&nbsp;B. „Option 1, aber mit Follow-Button aus Option 4").</p>
+</div>
+</body>
+</html>

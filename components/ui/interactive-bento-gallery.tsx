@@ -143,16 +143,6 @@ interface GalleryModalProps {
 const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaItems }: GalleryModalProps) => {
     const [dockPosition, setDockPosition] = useState({ x: 0, y: 0 });  // Track the position of the dockable panel
 
-    // Close on Escape key.
-    useEffect(() => {
-        if (!isOpen) return;
-        const onKey = (e: KeyboardEvent) => {
-            if (e.key === "Escape") onClose();
-        };
-        window.addEventListener("keydown", onKey);
-        return () => window.removeEventListener("keydown", onKey);
-    }, [isOpen, onClose]);
-
     if (!isOpen) return null; // Return null if the modal is not open
 
     return (
@@ -171,8 +161,8 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                           rounded-none sm:rounded-lg md:rounded-xl overflow-hidden z-10"
 
             >
-                {/* Main Content — clicking the area beside the image closes the modal */}
-                <div className="h-full flex flex-col" onClick={onClose}>
+                {/* Main Content */}
+                <div className="h-full flex flex-col">
                     <div className="flex-1 p-2 sm:p-3 md:p-4 flex items-center justify-center bg-gray-50/50">
                         <AnimatePresence mode="wait">
                             <motion.div

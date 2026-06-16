@@ -17,7 +17,7 @@ const LINKS = [
   { href: "#projekte", label: "Projekte" },
   { href: "#studio", label: "Studio" },
   { href: "#leistungen", label: "Leistungen" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#kontakt", label: "Kontakt" },
 ] as const;
 
 export function Navbar() {

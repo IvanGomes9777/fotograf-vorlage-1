@@ -33,8 +33,8 @@ Sektionen:
 6. **Workflow** — vierstufiger Ablauf.
 7. **Instagram-Strip** — interaktive Bento-Galerie (draggable, Lightbox-Modal mit Dock)
    plus „Auf Instagram folgen"-Button.
-8. **FAQ** — Akkordeon.
-9. **Kontakt** — validiertes Formular mit Bestätigung + Footer.
+8. **Kontakt** — validiertes Formular mit Bestätigung, Kontaktkarten,
+   Google-Maps-Embed (Standort) + Footer.
 
 ## Platzhalter ersetzen
 

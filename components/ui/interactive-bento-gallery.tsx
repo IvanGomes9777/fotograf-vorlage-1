@@ -188,6 +188,13 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                                 onClick={onClose}
                             >
                                 <MediaItem item={selectedItem} className="w-full h-full object-contain bg-gray-900/20" onClick={onClose} />
+                                {/* Hint: tap the image again to close */}
+                                <div className="absolute top-2 left-1/2 -translate-x-1/2 rounded-full
+                                              bg-black/45 px-3 py-1 backdrop-blur-sm">
+                                    <span className="text-white/90 text-[11px] tracking-wide">
+                                        Zum Schließen aufs Bild tippen
+                                    </span>
+                                </div>
                                 <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 md:p-4
                                               bg-gradient-to-t from-black/50 to-transparent">
                                     <h3 className="text-white text-base sm:text-lg md:text-xl font-semibold">

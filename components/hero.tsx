@@ -246,7 +246,7 @@ export function Hero() {
               <div className="mb-5 flex items-center gap-3">
                 <span className="h-px w-7 bg-accent" />
                 <span className="font-mono text-[11px] tracking-[0.26em] text-accent">
-                  ARCHITEKTURFOTOGRAFIE · ZÜRICH
+                  ARCHITEKTURFOTOGRAFIE · BERLIN
                 </span>
               </div>
             </Reveal>

@@ -34,7 +34,11 @@ Sektionen:
 7. **Instagram-Strip** — interaktive Bento-Galerie (draggable, Lightbox-Modal mit Dock)
    plus „Auf Instagram folgen"-Button.
 8. **Kontakt** — validiertes Formular mit Bestätigung, Kontaktkarten,
-   Google-Maps-Embed (Standort) + Footer.
+   Google-Maps-Embed (Standort) + Footer mit Rechts-Links.
+
+Rechtliche Platzhalter-Seiten (Standort: Berlin/Deutschland): `/impressum`,
+`/datenschutz` (inkl. `#cookies`), `/agb`. Inhalte sind Vorlagentexte — vor
+Veröffentlichung rechtlich prüfen und anpassen.
 
 ## Platzhalter ersetzen
 

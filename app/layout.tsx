@@ -22,7 +22,7 @@ const SITE_URL = "https://veduta.example";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "VEDUTA Studio — Architektur- & Interior-Fotografie | Zürich",
+  title: "VEDUTA Studio — Architektur- & Interior-Fotografie | Berlin",
   description:
     "Präzise, formtreue Architektur- und Interior-Fotografie für Studios, Bauträger und Marken. Termingerecht geliefert, klar lizenziert.",
   alternates: { canonical: "/" },

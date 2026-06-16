@@ -209,7 +209,7 @@ export function StudioServices() {
                 </div>
                 <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-5">
                   <span className="font-mono text-[11px] tracking-[0.22em] text-white/90">
-                    VEDUTA · ZÜRICH
+                    VEDUTA · BERLIN
                   </span>
                   <span className="font-mono text-[11px] tracking-[0.22em] text-white/70">
                     EST. 2017

@@ -5,12 +5,12 @@ import { Mail, Phone, MapPin, Instagram, Check } from "lucide-react";
 
 // Studio details — swap for the real contact data.
 const STUDIO = {
-  email: "studio@veduta.ch",
-  phone: "+41 44 000 00 00",
-  location: "Zürich, CH",
+  email: "studio@veduta.de",
+  phone: "+49 30 1234567",
+  location: "Berlin, DE",
   instagram: "veduta.studio",
   // Google Maps embed query (no API key required for the public embed).
-  mapQuery: "Bahnhofstrasse, 8001 Zürich, Schweiz",
+  mapQuery: "Torstraße 1, 10119 Berlin, Deutschland",
 } as const;
 
 const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
@@ -125,7 +125,7 @@ export function Contact() {
                       onChange={set("email")}
                       aria-invalid={!!errors.email}
                       className={fieldClass(errors.email)}
-                      placeholder="max@firma.ch"
+                      placeholder="max@firma.de"
                     />
                     {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                   </div>
@@ -208,7 +208,28 @@ export function Contact() {
             <a href="#leistungen" className="hover:text-ink">Leistungen</a>
             <a href="#instagram" className="hover:text-ink">Instagram</a>
           </nav>
-          <span className="font-mono text-[12px] tracking-[0.1em]">© 2026 VEDUTA STUDIO · ZÜRICH</span>
+          <span className="font-mono text-[12px] tracking-[0.1em]">© 2026 VEDUTA STUDIO · BERLIN</span>
+        </div>
+
+        {/* Legal row */}
+        <div className="border-t border-line">
+          <nav
+            className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-5 md:px-10"
+            aria-label="Rechtliches"
+          >
+            <a href="/impressum" className="font-mono text-[12px] tracking-[0.1em] text-muted hover:text-ink">
+              Impressum
+            </a>
+            <a href="/datenschutz" className="font-mono text-[12px] tracking-[0.1em] text-muted hover:text-ink">
+              Datenschutz
+            </a>
+            <a href="/agb" className="font-mono text-[12px] tracking-[0.1em] text-muted hover:text-ink">
+              AGB
+            </a>
+            <a href="/datenschutz#cookies" className="font-mono text-[12px] tracking-[0.1em] text-muted hover:text-ink">
+              Cookie-Einstellungen
+            </a>
+          </nav>
         </div>
       </footer>
     </section>
